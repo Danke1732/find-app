@@ -1,0 +1,16 @@
+footer {
+  background: rgb(9, 62, 133);
+  height: 80px;
+
+  .copy-light-area {
+    width: 100px;
+    margin: 0 auto;
+    font-size: 18px;
+
+
+    .copy-light {
+      color: #fff;
+      line-height: 80px;
+    }
+  }
+}
