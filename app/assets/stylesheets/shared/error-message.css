@@ -1,0 +1,20 @@
+.error-alert {
+  display: flex;
+  justify-content: center;
+  margin: 2vh 0;
+}
+
+.error-alert > ul {
+  width: 90%;
+}
+
+.error-message {
+  font-size: 1.3vw;
+  display: block;
+  width: 100%;
+  background: #fcf8e3;
+  color: rgb(182, 48, 0);
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #faebcc;
+}
