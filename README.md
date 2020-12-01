@@ -19,7 +19,7 @@
 | ------------------ | ----------- | ------------------------------ |
 | title              | string      | null: false                    |
 | text               | text        | null: false                    |
-| category_id        | integer     | null: false, foreign_key: true |
+| category           | references  | null: false, foreign_key: true |
 | user               | references  | null: false, foreign_key: true |
 
 ### Association
