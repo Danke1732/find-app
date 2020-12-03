@@ -1,0 +1,31 @@
+<div class="aside-wrapper">
+  <div class="side-box">
+    <div class="side-head-area">
+      <h3 class="side-head-title">SEARCH</h3>
+    </div>
+    <%= form_with url: '#', class: 'search-form', local: true do |f| %>
+      <%= f.text_field :keyword, class: 'input-box', placeholder: 'キーワードから探す' %>
+      <%= f.submit '検索', class:"search-icon fas fa-search search-icon" %>
+    <% end %>
+  </div>
+  <div class="side-box">
+    <div class="side-head-area">
+      <h3 class="side-head-title">ARTICLE MENU</h3>
+    </div>
+    <ul>
+      <li><%= link_to "新着記事", '#', class: 'side-menu-item' %></li>
+      <li><%= link_to "ランキング", '#', class: 'side-menu-item' %></li>
+      <li><%= link_to 'カテゴリー一覧', '#', class: 'side-menu-item' %></li>
+      <li><%= link_to 'タグ一覧', '#', class: 'side-menu-item' %></li>
+    </ul>
+  </div>
+  <div class="side-box">
+    <div class="side-head-area">
+      <h3 class="side-head-title">USER SUPPORT</h3>
+    </div>
+    <ul>
+      <li><%= link_to "フォロー", '#', class: 'side-menu-item' %></li>
+      <li><%= link_to "ノート", '#', class: 'side-menu-item' %></li>
+    </ul>
+  </div>
+</div>
