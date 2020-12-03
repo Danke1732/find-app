@@ -1,51 +1,56 @@
 header {
   height: 80px;
-  display: flex;
-  justify-content: space-between;
   padding: 0 56px;
   background: rgb(9, 62, 133);
-  
-  a {
-    display: inline-block;
-    line-height: 80px;
-    color: #fff;
-  }
 
-  .header-left {
-    h2 > a {
-      font-size: 1.5em;
-      letter-spacing: 0.1em;
-      font-weight: normal;
-    }
-  }
-
-  .header-right {
+  .container {
+    max-width: 1020px;
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
 
-    .nav {
-      display: flex;
+    a {
+      display: inline-block;
+      line-height: 80px;
+      color: #fff;
+    }
   
-      .category-head {
-        margin: 0 48px 0 0;
+    .header-left {
+      h2 > a {
+        font-size: 1.5em;
+        letter-spacing: 0.1em;
+        font-weight: normal;
+      }
+    }
+  
+    .header-right {
+      display: flex;
+      justify-content: space-between;
+  
+      .nav {
+        display: flex;
+    
+        .category-head {
+          margin: 0 48px 0 0;
+        }
+    
+        .tag-head {
+          margin: 0 48px 0 0;
+        }
       }
   
-      .tag-head {
-        margin: 0 48px 0 0;
+      .user_sign_in {
+        display: flex;
       }
-    }
-
-    .user_sign_in {
-      display: flex;
-    }
-
-    .sign-up, .user_name {
-      margin-right: 48px;
-      display: inline-block;
-    }
-
-    .login, .logout {
-      display: inline-block;
+  
+      .sign-up, .user_name, .new-post {
+        margin-right: 48px;
+        display: inline-block;
+      }
+  
+      .login, .logout {
+        display: inline-block;
+      }
     }
   }
 }

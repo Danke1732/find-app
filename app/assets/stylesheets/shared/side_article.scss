@@ -1,0 +1,52 @@
+.aside-wrapper {
+  width: 25%;
+  padding: 16px;
+
+  .side-box {
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    border-radius: 2px;
+    margin-bottom: 20px;
+
+    .side-head-area {
+      padding: 0 0 6px;
+      border-bottom: 2px #0d0015 solid;
+      margin-bottom: 10px;
+
+      .side-head-title {
+        font-size: 18px;
+        letter-spacing: 0.05em;
+        color: #0d0015;
+        font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+      }
+    }
+
+    ul > li > .side-menu-item {
+      display: block;
+      padding: 4px 2px;
+      color: #333;
+      border-radius: 4px;
+
+      &:hover {
+        background: rgba(222, 222, 222, 0.4);
+        color: orangered;
+      }
+    }
+  }
+
+  .search-form {
+    display: flex;
+
+    .input-box {
+      width: 78%;
+      padding: 8px 10px 6px;
+      margin-right: 2%;
+      border-radius: 10px;
+    }
+
+    .search-icon {
+      width: 20%;
+      
+    }
+  }
+}

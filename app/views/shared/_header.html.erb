@@ -1,22 +1,21 @@
 <header>
-  <div class="header-left">
-    <h2><a href="/">Spread</a></h2>
-  </div>
-  <div class="header-right">
-    <ul class="nav">
-      <li><%= link_to 'カテゴリー一覧', '#', class: 'category-head' %></li>
-      <li><%= link_to 'タグ一覧', '#', class: 'tag-head' %></li>
-    </ul>
-    <% if user_signed_in? %>
-      <ul class="user_sign_in">
-        <li><%= link_to current_user.nickname, '#', class: 'user_name' %></li>
-        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
-      </ul>
-    <% else %>
-      <ul class="user_sign_in">
-        <li><%= link_to '新規登録', new_user_registration_path, class: 'sign-up' %></li>
-        <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
-      </ul>
-    <% end %>
+  <div class="container">
+    <div class="header-left">
+      <h2><a href="/">Find it.</a></h2>
+    </div>
+    <div class="header-right">
+      <% if user_signed_in? %>
+        <ul class="user_sign_in">
+          <li><%= link_to '投稿する', new_article_path, class: 'new-post' %></li>
+          <li><%= link_to current_user.nickname, '#', class: 'user_name' %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
+        </ul>
+      <% else %>
+        <ul class="user_sign_in">
+          <li><%= link_to '新規登録', new_user_registration_path, class: 'sign-up' %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
+        </ul>
+      <% end %>
+    </div>
   </div>
 </header>
