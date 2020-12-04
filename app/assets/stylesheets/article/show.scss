@@ -1,0 +1,161 @@
+.articles-wrapper {
+
+  .category-user-visible-area {
+    margin-bottom: 14px;
+    width: 100%;
+
+    .category-info {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .user-day-info {
+      display: flex;
+      justify-content: space-between;
+
+      .user-info {
+        color: #333;
+      }
+
+      .day-info {
+        color: #777;
+      }
+    }
+  }
+
+  .article-details {
+    width: 100%;
+
+    .article-image-area {
+      padding: 1.5%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      width: 100%;
+
+      img {
+        width: 100%;
+        border-radius: 4px;
+        vertical-align: bottom;
+      }
+    }
+
+    .article-text-area {
+      padding: 32px 16px 20px;
+      color: #333;
+    }
+
+    .edit-btn {
+      display: block;
+      padding: 14px 0;
+      font-size: 20px;
+      background: #0099e8;
+      color: #fff;
+      text-align: center;
+      border-radius: 30px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+      width: 70%;
+      margin: 0 auto;
+      margin-bottom: 10px;
+      letter-spacing: 0.3em;
+      position: relative;
+      bottom: 0;
+      transition: all 0.2s;
+
+      &:hover {
+        position: relative;
+        bottom: 2px;
+        transition: all 0.2s;
+        box-shadow: 5px 5px 20px rgba(0,0,0,0.3);
+      }
+    }
+  }
+}
+
+.comment-all {
+  max-width: 1020px;
+  margin: 20px auto 0;
+  
+  .low-comment-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 72%;
+    margin: 40px 1.5% 0 auto;
+
+  
+    .comment-visible-box,
+    .comment-wrapper {
+      width: 100%;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      background: #fff;
+      padding: 8px 1.5% 10px;
+
+      .wrapper-title-area {
+        margin-bottom: 16px;
+        padding-bottom: 6px;
+        border-bottom: 3px dashed #333;
+        width: 100%;
+    
+        .wrapper-title {
+          display: inline-block;
+          font-size: 22px;
+          padding-left: 8px;
+          letter-spacing: 0.05em;
+          font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+        }
+      }
+    }
+
+    .comment-visible-box {
+      height: 300px;
+      
+      .comment-open-area {
+        background: pink;
+        overflow: auto;
+        height: 220px;
+
+        .comment {
+          padding: 8px;
+          margin-bottom: 8px;
+          border-bottom: 1px solid #aaa;
+          color: #333;
+        }
+        
+        
+        .comment_user {
+          margin-bottom: 8px;
+        }
+        
+        .comment-delete {
+          float: right;
+          cursor: pointer;
+          background: red;
+          padding: 2px 8px;
+          border-radius: 4px;
+          color: #fff;
+        }
+
+        .clearfix {
+          content: '';
+          display: block;
+          clear: both;
+        }
+      }
+    }
+
+    .comment-wrapper {
+      height: 250px;
+      margin-top: 40px;
+
+      .comment-box {
+        background: pink;
+        overflow: auto;
+        height: 140px;
+      }
+    }
+  }
+}
+
+.clearfix {
+  content: '';
+  display: block;
+  clear: both;
+}
