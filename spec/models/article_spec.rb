@@ -31,14 +31,13 @@ RSpec.describe Article, type: :model do
       it 'category_idがcategoryに紐づいたデータでないと投稿することができない' do
         @article.category = nil
         @article.valid?
-        expect(@article.errors.full_messages).to include("Category must exist")
+        expect(@article.errors.full_messages).to include('Category must exist')
       end
       it 'userが紐づいていないと投稿することができない' do
         @article.user = nil
         @article.valid?
-        expect(@article.errors.full_messages).to include("User must exist")
+        expect(@article.errors.full_messages).to include('User must exist')
       end
     end
-
   end
 end
