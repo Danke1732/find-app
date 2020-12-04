@@ -1,7 +1,10 @@
 <div class="articles-wrapper">
+  <div class="wrapper-title-area">
+    <h2 class="wrapper-title">Article Post</h2>
+  </div>
   <div class="article-display">
     <% @articles.each do |article| %>
-      <%= link_to '#', class: 'article-box' do %>
+      <%= link_to article_path(article), class: 'article-box' do %>
         <div class="article-content">
           <div>
             <%= image_tag article.image if article.image.attached? %>

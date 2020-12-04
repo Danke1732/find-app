@@ -1,0 +1,62 @@
+<%= render '/shared/header' %>
+
+<main>
+  <div class="container">
+    <%= render '/shared/aside_articles' %>
+    <div class="articles-wrapper">
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title"><%= @article.title %></h2>
+      </div>
+      <div class="category-user-visible-area">
+        <div class="category-info">
+          カテゴリー : <%= @article_category_name[0] %> / <%= @article_category_name[1] %> / <%= @article_category_name[2] %>
+        </div>
+        <div class="user-day-info">
+          <div class="user-info">
+            投稿者 : <%= @article.user.nickname %>
+          </div>
+          <div class="day-info">
+            <%= @article.updated_at.to_s(:datetime_jp) %> 更新
+          </div>
+        </div>
+      </div>
+      <div class="article-details">
+        <div class="article-image-area">
+          <%= image_tag @article.image if @article.image.attached? %>
+        </div>
+        <div class="article-text-area">
+          <p><%= simple_format(@article.text) %></p>
+        </div>
+        <% if user_signed_in? && current_user.id == @article.user.id %>
+          <%= link_to '編集', '#', class: 'edit-btn' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="comment-all">
+    <div class="low-comment-wrapper">
+
+      <div class="comment-visible-box">
+        <div class="wrapper-title-area">
+          <h2 class="wrapper-title">コメント一覧BOX</h2>
+        </div>
+        <div class="comment-open-area">
+          
+        </div>
+      </div>
+
+      <div class="comment-wrapper">
+        <div class="wrapper-title-area">
+          <h2 class="wrapper-title">コメント投稿BOX</h2>
+        </div>
+        <div class="comment-box">
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<%= render '/shared/footer' %>
