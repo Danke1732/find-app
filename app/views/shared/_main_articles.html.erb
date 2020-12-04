@@ -1,0 +1,20 @@
+<div class="articles-wrapper">
+  <div class="article-display">
+    <% @articles.each do |article| %>
+      <%= link_to '#', class: 'article-box' do %>
+        <div class="article-content">
+          <div>
+            <%= image_tag article.image if article.image.attached? %>
+          </div>
+          <div class="article-low-content">
+            <h2 class="content-title"><%= article.title %></h2>
+            <p class="content-user">投稿者: <%= article.user.nickname %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>  
+  </div>
+  <div class="page-list">
+    <%= paginate @articles %>
+  </div>
+</div>

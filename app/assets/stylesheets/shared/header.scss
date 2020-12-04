@@ -11,7 +11,6 @@ header {
 
     a {
       display: inline-block;
-      line-height: 80px;
       color: #fff;
     }
   
@@ -20,6 +19,7 @@ header {
         font-size: 1.5em;
         letter-spacing: 0.1em;
         font-weight: normal;
+        line-height: 80px;
       }
     }
   
@@ -27,29 +27,27 @@ header {
       display: flex;
       justify-content: space-between;
   
-      .nav {
-        display: flex;
-    
-        .category-head {
-          margin: 0 48px 0 0;
-        }
-    
-        .tag-head {
-          margin: 0 48px 0 0;
-        }
-      }
-  
       .user_sign_in {
         display: flex;
+        align-items: center;
+      }
+
+      li > a {
+        display: inline-block;
+        padding: 0 10px; 
+        transition: all 0.3s;
+
+        &:hover {
+          padding: 10px 10px;
+          transition: all 0.3s;
+          background: #fff;
+          color: rgb(9, 62, 133);
+          border-radius: 2px;
+        }
       }
   
       .sign-up, .user_name, .new-post {
         margin-right: 48px;
-        display: inline-block;
-      }
-  
-      .login, .logout {
-        display: inline-block;
       }
     }
   }
