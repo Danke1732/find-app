@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_category_parent_array, only: [:new, :create]
 
   def index
-    @articles = Article.includes(:user)
+    @articles = Article.includes(:user).page(params[:page]).per(8)
   end
 
   def new

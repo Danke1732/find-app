@@ -1,0 +1,39 @@
+.page-list {
+  margin: 0 auto;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination > li > a {
+  display: inline-block;
+  color: #333;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  margin: 0 3px;
+  border-radius: 50%;
+  position: relative;
+  bottom: 0;
+  transition: all 0.2s;
+}
+
+.pagination > .active > a {
+  background: #333;
+  color: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.pagination > li > a:hover {
+  border-radius: 50%;
+  background: #333;
+  color: #fff;
+  opacity: 0.5;
+  bottom: 3px;
+  transition: all 0.2s;
+}
