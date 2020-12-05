@@ -1,9 +1,9 @@
-if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ )) {
+if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) || document.URL.match( /articles[/][0-9][/]edit/ )) {
   // カテゴリー親要素選択時の子要素表示
   function categoryParentSelect() {
     const parentCategoryBox = document.getElementById('category-select-box');
-    const secondCategoryArea = document.getElementById('second-Category');
-    const thirdCategoryArea = document.getElementById('third-Category');
+    const secondCategoryArea = document.getElementById('second-category');
+    const thirdCategoryArea = document.getElementById('third-category');
     if (parentCategoryBox.getAttribute('data-load') != null) {
       return null;
     }
@@ -63,7 +63,7 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ )) 
   // カテゴリー子要素選択時の孫要素表示
   function categoryChildSelect() {
     const childrenCategoryBox = document.getElementById('category-select-box2');
-    const thirdCategoryArea = document.getElementById('third-Category');
+    const thirdCategoryArea = document.getElementById('third-category');
     if (childrenCategoryBox.getAttribute('data-load') != null) {
       return null;
     }
@@ -111,7 +111,7 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ )) 
           thirdCategoryArea.removeChild(thirdCategoryArea.firstChild);
         }
       }
-     });
+    });
   }
   setInterval(categoryParentSelect, 1000);
   setInterval(categoryChildSelect, 1000);
