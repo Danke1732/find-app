@@ -24,6 +24,8 @@ class ArticlesController < ApplicationController
 
   def show
     get_category_path_name
+    @comment = Comment.new
+    @comments = @article.comments.includes(:user).order('created_at ASC')
   end
 
   def edit
