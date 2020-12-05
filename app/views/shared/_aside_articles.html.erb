@@ -4,8 +4,10 @@
       <h3 class="side-head-title">SEARCH</h3>
     </div>
     <%= form_with url: '#', class: 'search-form', local: true do |f| %>
-      <%= f.text_field :keyword, class: 'input-box', placeholder: 'キーワードから探す' %>
-      <%= f.submit '検索', class:"search-icon fas fa-search search-icon" %>
+      <%= f.text_field :keyword, class: 'input-box', placeholder: 'キーワードから探す' %> 
+      <%= button_tag type: :submit, class:"search-btn" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     <% end %>
   </div>
   <div class="side-box">
