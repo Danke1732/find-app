@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
-  before_action :set_article, only: [:show, :destroy]
-  before_action :set_category_parent_array, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_category_parent_array, only: [:new, :create, :edit, :update]
+  before_action :article_user_check, only: [:edit, :update, :destroy]
 
   def index
     @articles = Article.includes(:user).order('updated_at DESC').page(params[:page]).per(8)
@@ -23,6 +24,18 @@ class ArticlesController < ApplicationController
 
   def show
     get_category_path_name
+  end
+
+  def edit
+  end
+
+  def update
+    if @article.update(article_params)
+      @article.save
+      redirect_to action: :index
+    else
+      render action: :edit
+    end
   end
 
   def destroy
@@ -64,5 +77,9 @@ class ArticlesController < ApplicationController
       category_name = Category.find_by(id: category)
       @article_category_name << category_name.name
     end
+  end
+
+  def article_user_check
+    redirect_to root_path unless current_user.id == @article.user_id
   end
 end
