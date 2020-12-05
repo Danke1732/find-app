@@ -37,13 +37,22 @@
 
   <div class="comment-all">
     <div class="low-comment-wrapper">
-
       <div class="comment-visible-box">
         <div class="wrapper-title-area">
           <h2 class="wrapper-title">コメント一覧BOX</h2>
         </div>
         <div class="comment-open-area">
-          
+          <ul id="comments-indicate">
+            <% @comments.reverse_each do |comment| %>
+              <li class="comment">
+                <h3 class="comment-user"><%= comment.user.nickname %></h3>
+                <div>
+                  <%= simple_format(comment.text) %>
+                </div>
+                <div class="clearfix"></div>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </div>
 
@@ -52,7 +61,18 @@
           <h2 class="wrapper-title">コメント投稿BOX</h2>
         </div>
         <div class="comment-box">
-          
+          <%= form_with model: [@article, @comment], id: "comment-form" do |f| %>
+            <%= render 'shared/error_messages', model: @comment %>
+            <div class="comment-text-box">
+              <%= f.text_area :text, class: "comment-text" %>
+            </div>
+            <% if user_signed_in? %>
+              <%= f.submit 'コメントする', class:"comment-flag-icon" %>
+            <% else %>
+              <%= link_to '新規登録',  new_user_session_path, class: "comment-flag-icon comment-signup" %>
+              <%= link_to 'ログイン', new_user_registration_path, class: "comment-flag-icon comment-signin" %>
+            <% end %>
+          <% end %>
         </div>
       </div>
 
