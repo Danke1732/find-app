@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :set_article, only: [:show, :destroy]
   before_action :set_category_parent_array, only: [:new, :create]
 
   def index
@@ -21,17 +22,21 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @article = Article.find(params[:id])
     get_category_path_name
   end
 
+  def destroy
+    @article.destroy
+    redirect_to action: :index
+  end
+
   def get_category_children
-    @category_children = Category.find_by(id: "#{params[:id]}", ancestry: nil).children
+    @category_children = Category.find_by(id: params[:id].to_s, ancestry: nil).children
     render json: { children: @category_children }
   end
 
   def get_category_grandchildren
-    @category_grandchildren = Category.find("#{params[:id]}").children
+    @category_grandchildren = Category.find(params[:id].to_s).children
     render json: { grandChildren: @category_grandchildren }
   end
 
@@ -39,6 +44,10 @@ class ArticlesController < ApplicationController
 
   def article_params
     params.require(:article).permit(:image, :title, :category_id, :text).merge(user_id: current_user.id)
+  end
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 
   def set_category_parent_array
@@ -56,5 +65,4 @@ class ArticlesController < ApplicationController
       @article_category_name << category_name.name
     end
   end
-
 end

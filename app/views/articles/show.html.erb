@@ -28,7 +28,8 @@
           <p><%= simple_format(@article.text) %></p>
         </div>
         <% if user_signed_in? && current_user.id == @article.user.id %>
-          <%= link_to '編集', '#', class: 'edit-btn' %>
+          <%= link_to '編集', '#', class: 'article-edit btn' %>
+          <%= link_to '削除', article_path(@article), method: :delete, class: 'article-delete btn' %>
         <% end %>
       </div>
     </div>
