@@ -41,6 +41,10 @@
     .article-text-area {
       padding: 32px 16px 20px;
       color: #333;
+
+      p {
+        word-break: break-all;
+      }
     }
 
     .btn {
@@ -169,7 +173,6 @@
     }
 
     .comment-wrapper {
-      height: 310px;
       margin-top: 40px;
 
       .wrapper-title-area {
@@ -181,7 +184,6 @@
       }
 
       .comment-box {
-        height: 140px;
         width: 100%;
 
         #comment-form {
