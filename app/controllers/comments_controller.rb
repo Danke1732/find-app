@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token
 
   def create
     @comment = Comment.new(comment_params)
@@ -11,6 +12,13 @@ class CommentsController < ApplicationController
       @error_message = @comment.errors.full_messages
       ActionCable.server.broadcast 'comment_channel', error_message: @error_message
     end
+  end
+
+  def destroy
+    @comment = Comment.find_by(id: params[:id])
+    @comment.destroy
+    @comment = Comment.find_by(id: params[:id])
+    render json: { comment: @comment }
   end
 
   private

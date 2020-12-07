@@ -31,9 +31,10 @@ consumer.subscriptions.create("CommentChannel", {
         <h3 class="comment-user">
           ${data.user.nickname}
         </h3>
-        <div>
+        <p>
           ${data.content.text}
-        </div>
+        </p>
+        <div class="comment-delete fas fa-trash-alt" id="${data.content.id}"></div>
         <div class="clearfix"></div>
       </li>`;
     // コメント一覧の最初の子要素として描画

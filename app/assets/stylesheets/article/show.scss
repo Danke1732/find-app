@@ -41,6 +41,10 @@
     .article-text-area {
       padding: 32px 16px 20px;
       color: #333;
+
+      p {
+        word-break: break-all;
+      }
     }
 
     .btn {
@@ -152,12 +156,20 @@
         }
         
         .comment-delete {
-          float: right;
+          display: inline-block;
           cursor: pointer;
-          background: red;
-          padding: 2px 8px;
+          background: rgba(51, 51, 51, 0.1);
+          padding: 6px 8px;
           border-radius: 4px;
-          color: #fff;
+          font-size: 20px;
+          color: rgba(51, 51, 51, 0.5);
+          transition: all 0.3s;
+
+          &:hover {
+            background: rgba(51, 51, 51, 0.3);
+            color: rgba(51, 51, 51, 0.8);
+            transition: all 0.3s;
+          }
         }
 
         .clearfix {
@@ -169,7 +181,6 @@
     }
 
     .comment-wrapper {
-      height: 310px;
       margin-top: 40px;
 
       .wrapper-title-area {
@@ -181,7 +192,6 @@
       }
 
       .comment-box {
-        height: 140px;
         width: 100%;
 
         #comment-form {
