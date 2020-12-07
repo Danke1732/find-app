@@ -49,8 +49,10 @@
                 <div>
                   <%= simple_format(comment.text) %>
                 </div>
-                <% if current_user.id == comment.user.id || current_user.id == @article.user.id %>
-                  <div class="comment-delete fas fa-trash-alt" id="<%= comment.id %>"></div>
+                <% if user_signed_in? %>
+                  <% if current_user.id == comment.user.id || current_user.id == @article.user.id %>
+                    <div class="comment-delete fas fa-trash-alt" id="<%= comment.id %>"></div>
+                  <% end %>
                 <% end %>
                 <div class="clearfix"></div>
               </li>
@@ -72,8 +74,8 @@
             <% if user_signed_in? %>
               <%= f.submit 'コメントする', class:"comment-flag-icon" %>
             <% else %>
-              <%= link_to '新規登録',  new_user_session_path, class: "comment-flag-icon comment-signup" %>
-              <%= link_to 'ログイン', new_user_registration_path, class: "comment-flag-icon comment-signin" %>
+              <%= link_to '新規登録',  new_user_registration_path, class: "comment-flag-icon comment-signup" %>
+              <%= link_to 'ログイン', new_user_session_path, class: "comment-flag-icon comment-signin" %>
             <% end %>
           <% end %>
         </div>
