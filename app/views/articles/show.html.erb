@@ -49,6 +49,9 @@
                 <div>
                   <%= simple_format(comment.text) %>
                 </div>
+                <% if current_user.id == comment.user.id || current_user.id == @article.user.id %>
+                  <div class="comment-delete fas fa-trash-alt" id="<%= comment.id %>"></div>
+                <% end %>
                 <div class="clearfix"></div>
               </li>
             <% end %>
@@ -60,7 +63,7 @@
         <div class="wrapper-title-area">
           <h2 class="wrapper-title">コメント投稿BOX</h2>
         </div>
-        <div class="comment-box">
+        <div class="comment-box" id="<%= @article.id %>%">
           <%= form_with model: [@article, @comment], id: "comment-form" do |f| %>
             <%= render 'shared/error_messages', model: @comment %>
             <div class="comment-text-box">
