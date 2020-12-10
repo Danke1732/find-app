@@ -50,6 +50,17 @@
       <div class="page-list">
         <%= paginate @articles_bookmarks %>
       </div>
+      
+      <% if current_user.id == @user.id %>
+        <div class="wrapper-title-area">
+          <h2 class="wrapper-title"><%= @user.nickname %>さんのノート</h2>
+        </div>
+        <div class="article-display note-box">
+          <% @user.notes.each do |note| %>
+            <p class="note-content"><%= note.text %></p>
+          <% end %>  
+        </div>
+      <% end %>
     </div>
   </div>
 </main>
