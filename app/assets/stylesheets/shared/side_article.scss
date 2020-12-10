@@ -29,9 +29,41 @@
       color: #333;
       border-radius: 4px;
 
+      .note {
+        pointer-events: none;
+        user-select: none;
+        cursor: none;
+      }
+
       &:hover {
         background: rgba(222, 222, 222, 0.4);
         color: orangered;
+      }
+    }
+
+    .memo-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+      .memo-area {
+        height: 100%;
+        margin-bottom: 10px;
+        padding: 12px;
+        text-align: left;
+        font-size: 16px;
+        height: 200px;
+      }
+
+      .memo-submit {
+        width: 100px;
+        margin: 0 auto;
+        background: rgb(0, 155, 232);
+        border: 2px solid rgba(0, 0, 0, 0);
+        border-radius: 4px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
       }
     }
   }
