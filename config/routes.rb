@@ -11,4 +11,5 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  get '/bookmarks/:id', to: 'bookmarks#like'
 end
