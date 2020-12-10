@@ -31,6 +31,11 @@
           <%= link_to '編集', edit_article_path(@article), class: 'article-edit btn' %>
           <%= link_to '削除', article_path(@article), method: :delete, class: 'article-delete btn' %>
         <% end %>
+        <% if user_signed_in? && current_user.id != @article.user.id %>
+          <div class="bookmarks-btn" data-num=<%= @article.id %>>
+            <span class="article-marks btn">ブックマーク登録</span>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
