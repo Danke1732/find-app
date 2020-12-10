@@ -91,6 +91,19 @@
         color: rgba(241, 109, 21, 1);
       }
     }
+
+    .article-marks {
+      background: rgb(241, 226, 21);
+      border: 2px solid rgba(0, 0, 0, 0);
+      color: rgb(51, 51, 51);
+      cursor: pointer;
+
+      &:hover {
+        border: 2px solid rgba(241, 226, 21, 1);
+        background: rgba(241, 226, 21, 0.1);
+        color: rgba(51, 51, 51, 1);
+      }
+    }
   }
 }
 

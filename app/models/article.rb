@@ -3,6 +3,8 @@ class Article < ApplicationRecord
   has_one_attached :image
   belongs_to :category
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :users, through: :bookmarks
 
   with_options presence: true do
     validates :image
