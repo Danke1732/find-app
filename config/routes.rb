@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     end
   end
   get '/bookmarks/:id', to: 'bookmarks#like'
+  resources :users, only: [:index, :show]
 end
