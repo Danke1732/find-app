@@ -7,5 +7,8 @@ Rails.application.routes.draw do
       get 'get_category_children/:id' => 'articles#get_category_children'
       get 'get_category_grandchildren/:id' => 'articles#get_category_grandchildren' 
     end
+    collection do
+      get 'search'
+    end
   end
 end
