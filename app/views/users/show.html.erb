@@ -1,0 +1,57 @@
+<%= render 'shared/header' %>
+
+<main>
+  <div class="container">
+    <%= render '/shared/aside_articles' %>
+    <div class="articles-wrapper">
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title">My Page</h2>
+      </div>
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title"><%= @user.nickname %>さんの投稿記事</h2>
+      </div>
+      <div class="article-display">
+        <% @user.articles.each do |article| %>
+          <%= link_to article_path(article), class: 'article-box' do %>
+            <div class="article-content">
+              <div>
+                <%= image_tag article.image if article.image.attached? %>
+              </div>
+              <div class="article-low-content">
+                <h2 class="content-title"><%= article.title %></h2>
+                <p class="content-user">投稿者: <%= article.user.nickname %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="page-list">
+        <%= paginate @articles %>
+      </div>
+
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title"><%= @user.nickname %>さんのブックマーク記事</h2>
+      </div>
+      <div class="article-display">
+        <% @user.article_marks.each do |article| %>
+          <%= link_to article_path(article), class: 'article-box' do %>
+            <div class="article-content">
+              <div>
+                <%= image_tag article.image if article.image.attached? %>
+              </div>
+              <div class="article-low-content">
+                <h2 class="content-title"><%= article.title %></h2>
+                <p class="content-user">投稿者: <%= article.user.nickname %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>  
+      </div>
+      <div class="page-list">
+        <%= paginate @articles_bookmarks %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render 'shared/footer' %>
