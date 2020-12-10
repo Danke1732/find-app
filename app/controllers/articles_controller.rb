@@ -45,6 +45,18 @@ class ArticlesController < ApplicationController
     redirect_to action: :index
   end
 
+  def search
+    if params[:keyword] != ''
+      @keyword = params[:keyword]
+      @article = []
+      @split_keywords = params[:keyword].split(/[[:blank:]]+/)
+      keyword_search
+      @articles = Kaminari.paginate_array(@article).page(params[:page]).per(8)
+    else
+      @articles = Article.includes(:user).order('updated_at DESC').page(params[:page]).per(8)
+    end
+  end
+
   def get_category_children
     @category_children = Category.find_by(id: params[:id].to_s, ancestry: nil).children
     render json: { children: @category_children }
@@ -83,5 +95,13 @@ class ArticlesController < ApplicationController
 
   def article_user_check
     redirect_to root_path unless current_user.id == @article.user_id
+  end
+
+  def keyword_search
+    @split_keywords.each do |keyword|
+      Article.where('title LIKE(?) OR text LIKE(?)', "%#{keyword}%", "%#{keyword}%").each do |answer|
+        @article.push(answer)
+      end
+    end
   end
 end
