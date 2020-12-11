@@ -70,3 +70,5 @@ gem 'ancestry'
 gem 'kaminari'
 
 gem 'cloudinary'
+
+gem 'rails-i18n'
