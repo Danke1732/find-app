@@ -1,79 +1,71 @@
-# テーブル設計
+# Find it.
 
-## users テーブル
+## アプリケーションの概要
 
-| Column                | Type    | Options                   |
-| --------------------- | ------- | ------------------------- |
-| nickname              | string  | null: false               |
-| email                 | string  | null: false, unique: true |
-| encrypted_password    | string  | null: false               |
+Find it.では、記事の投稿、一覧表示、編集、削除、メモ機能、記事検索、記事のブックマーク登録を行うことができます。
 
-### Association
+## App URL
+ [https://find-it2020.herokuapp.com/](https://find-it2020.herokuapp.com/ "Find it.")
 
-- has_many :articles
-- has_many :comments
+## テスト用アカウント
+email : test@test1 
 
-## articles テーブル
+password : test11
 
-| Column             | Type        | Options                        |
-| ------------------ | ----------- | ------------------------------ |
-| title              | string      | null: false                    |
-| text               | text        | null: false                    |
-| category           | references  | null: false, foreign_key: true |
-| user               | references  | null: false, foreign_key: true |
+## 利用方法
+- 登録ユーザー
 
-### Association
+    記事の投稿、記事へのブックマーク、記事へのコメント、サイドバーからメモの記録、記事の検索(ユーザー登録未でも可)を行うことができます。
 
-- belongs_to :user
-- belongs_to :category
-- has_many :comments
-- has_many :articles_tags
-- has_many :tags, through: :articles_tags
+- 記事の投稿者
 
-## comments テーブル
+    本人が投稿した記事の編集、削除、コメントの削除を行うことができます。
 
-| Column         | Type       | Options                        |
-| -------------- | ---------- | ------------------------------ |
-| text           | text       | null: false                    |
-| user           | references | null: false, foreign_key: true |
-| article        | references | null: false, foreign_key: true |
+## 目指した課題解決
+- ユーザーが記事の情報からすぐに控えることができるようにサイドバーにメモ機能を設けました。
 
-### Association
+## 洗い出した要件
+- メモ機能
+  
+  記事を閲覧している中でユーザーが大事な情報や気づきを記録できるようにします
 
-- belongs_to :user
-- belongs_to :article
+- コメント機能
 
-## categories テーブル
+  コメント機能を設けることでユーザーが記事に対して質問や感想等のコミュニケーションを取ることでよりよい記事投稿に繋がります
 
-| Column         | Type           | Options                        |
-| -------------- | -------------  | ------------------------------ |
-| name           | string         | null: false, unique: true      |
-| ancestry       | string         | null: false                    |
+- ブックマーク機能
 
-### Association
+  ユーザー自身が投稿記事にブックマーク登録をすることで何度も閲覧したいと思った時に印をつけることで記事の管理がしやすくなります
 
-- has_many :articles
-- has_ancestry
+- 検索機能
 
-## tags テーブル
+  ユーザーが簡単により早く目当ての記事を検索できるようにします
 
-| Column         | Type           | Options                        |
-| -------------- | -------------  | ------------------------------ |
-| name           | string         | null: false, unique: true      |
+## 実装した機能
 
-### Association
+- メモ機能
+  
+  サイドバーにメモ欄を設けました。
+  サイドバーのメモ欄にメモを記述し「メモする」をクリックするとメモを記録することができるようにしました。
+  
 
-- has_many :articles_tags
-- has_many :articles, through: :articles_tags
+- コメント機能
 
-## articles_tags テーブル
+  記事詳細画面のコメント入力欄にコメントを入力し、「コメントする」ボタンを押すとコメントとできるようにしました。
 
-| Column         | Type           | Options                        |
-| -------------- | -------------  | ------------------------------ |
-| article_id     | references     | null: false  foreign_key: true |
-| tag_id         | references     | null: false, foreign_key: true |
+- ブックマーク機能
 
-### Association
+  記事詳細画面のブックマークボタンを設け、ブックマークボタンをクリックすることでお気に入り登録をすることができるようにしました。
 
-- belongs_to :article
-- belongs_to :tag
+- 検索機能
+
+  サイドバーの検索欄から検索することができ、複数単語検索と記事タイトルと本文の両方から探せるようにしました。
+
+## 実装予定の機能
+
+ユーザーとの繋がりを増やすことでより早く目当ての記事にたどり着けるようにユーザーのプロフィールを作成することで趣味趣向の合うユーザーから記事を探せるようにしていきます。
+
+## 動作環境
+- ruby 2.6.5
+- Rails 6.0.3.4
+- Bundler 2.1.4
