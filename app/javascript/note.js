@@ -13,21 +13,25 @@ function note() {
         alert(`Error ${XHR.status}: ${XHR.statusText}`);
         return null;
       }
-      const errorElement = document.getElementById('comment-error');
+      const errorElement = document.getElementById('memo-error');
       if (errorElement) {
         errorElement.remove();
       }
       const errorMessage = XHR.response.error_message;
       if (errorMessage) {
         const userSupport = document.querySelector('.user-support-menu');
-        const error = `<li class="error-message" id="comment-error">${errorMessage}</li>`;
+        const error = `<li class="error-message" id="memo-error">${errorMessage}</li>`;
         userSupport.insertAdjacentHTML('beforeend', error);
         return null;
       }
       const saveNote = XHR.response.note;
+      const saveDate = XHR.response.date;
       const noteBox = document.querySelector('.note-box');
       if (noteBox != null) {
-        const html = `<p class="note-content">${saveNote.text}</p>`;
+        const html = `<div class="note-content">
+        <p>${saveNote.text}</p>
+        <p>${saveDate}</p>
+        </div>`;
         noteBox.insertAdjacentHTML('afterbegin', html);
       }
       memoArea.value = '';
