@@ -6,8 +6,12 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-    if @note.save
-      ActionCable.server.broadcast 'note_channel', content: @note
+    if @note.valid?
+      @note.save
+      render json: { note: @note }
+    else
+      @error_message = @note.errors.full_messages
+      render json: { error_message: @error_message }
     end
   end
 
