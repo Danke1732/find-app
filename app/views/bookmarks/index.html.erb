@@ -8,10 +8,10 @@
         <h2 class="wrapper-title">My Page</h2>
       </div>
       <div class="contents-title-area">
-        <h2 class="wrapper-title"><%= @user.nickname %>さんの投稿記事</h2>
+        <h2 class="wrapper-title"><%= @user.nickname %>さんのブックマーク記事</h2>
       </div>
       <div class="article-display">
-        <% @user.articles.each do |article| %>
+        <% @articles.each do |article| %>
           <%= link_to article_path(article), class: 'article-box' do %>
             <div class="article-content">
               <div>

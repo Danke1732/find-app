@@ -3,6 +3,7 @@ header {
   padding: 0 56px;
   background: rgb(255, 112, 57);
   box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+  margin-bottom: 10px;
 
   .container {
     max-width: 1020px;
@@ -47,12 +48,10 @@ header {
         font-weight: bold;
         letter-spacing: 0.05em;
 
-
         &:hover {
           padding: 10px 10px;
           transition: all 0.3s;
           background: #fff;
-          // color:  rgb(255, 112, 57);
           color: #333;
           border-radius: 2px;
           border-bottom: 2px solid #333;
