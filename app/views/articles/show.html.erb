@@ -16,7 +16,7 @@
             投稿者 : <%= @article.user.nickname %>
           </div>
           <div class="day-info">
-            <%= @article.updated_at.to_s(:datetime_jp) %> 更新
+            <%= l @article.updated_at %> 更新
           </div>
         </div>
       </div>
