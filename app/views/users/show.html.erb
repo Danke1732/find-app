@@ -56,7 +56,7 @@
           <h2 class="wrapper-title"><%= @user.nickname %>さんのノート</h2>
         </div>
         <div class="article-display note-box">
-          <% @user.notes.each do |note| %>
+          <% @user_notes.each do |note| %>
             <p class="note-content"><%= note.text %></p>
           <% end %>  
         </div>

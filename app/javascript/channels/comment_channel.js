@@ -16,7 +16,7 @@ consumer.subscriptions.create("CommentChannel", {
       errorComment.remove();
     }
     // バリデーションエラー時の処理
-    if (`${data.error_message}` == "Text translation missing: ja.activerecord.errors.models.comment.attributes.text.blank") {
+    if (`${data.error_message}` == "コメントを入力してください") {
       const commentBox = document.querySelector('.comment-box');
       const error = `<div class="error-message" id="comment-error">${data.error_message}</div>`
       commentBox.insertAdjacentHTML('afterbegin', error);
