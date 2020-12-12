@@ -1,14 +1,18 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-
+    @user = User.find_by(id: params[:user_id])
+    redirect_to root_path if current_user.id != @user.id
+    @notes = @user.notes.order('created_at DESC').page(params[:page]).per(15)
   end
 
   def create
     @note = Note.new(note_params)
     if @note.valid?
       @note.save
-      render json: { note: @note }
+      @date = Date.current.strftime('%Y年 %m月 %d日')
+      render json: { note: @note, date: @date }
     else
       @error_message = @note.errors.full_messages
       render json: { error_message: @error_message }
