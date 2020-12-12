@@ -23,4 +23,7 @@ ja:
         text: コメント
       note:
         text: ノート
-        
+
+  time:
+    formats:
+      default: "%Y年 %m月 %d日"

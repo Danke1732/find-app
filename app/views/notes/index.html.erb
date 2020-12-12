@@ -1,0 +1,25 @@
+<%= render 'shared/header' %>
+
+<main>
+  <div class="container">
+    <%= render '/shared/aside_articles' %>
+    <div class="articles-wrapper">
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title">Note page</h2>
+      </div>
+      <div class="article-display note-box">
+        <% @notes.each do |note| %>
+          <div class="note-content">
+            <p><%= note.text %></p>
+            <p><%= l note.created_at %></p>
+          </div>
+        <% end %>
+      </div>
+      <div class="page-list">
+        <%= paginate @notes %>
+      </div>
+</div>
+  </div>
+</main>
+
+<%= render 'shared/footer' %>
