@@ -9,6 +9,7 @@ require("channels")
 require('../category')
 require('../comment_delete')
 require('../bookmark')
+require('../note')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :note do
-    text { "MyText" }
-    user { nil }
+    text { Faker::Lorem.sentence }
+    association :user
   end
 end

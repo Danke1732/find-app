@@ -23,11 +23,11 @@
     <div class="side-head-area">
       <h3 class="side-head-title">USER SUPPORT</h3>
     </div>
-    <ul>
+    <ul class="user-support-menu">
       <li><%= link_to "ノート", '#', class: 'side-menu-item note' %></li>
     </ul>
     <%= form_with model: @note, url: notes_path, class: 'memo-form', local: true do |f| %>
-      <%= f.text_area :text, class: 'memo-area', id: 'memo-field',placeholder: '気になることをメモしよう！' %>
+      <%= f.text_area :text, class: 'memo-area', id: 'memo-field', placeholder: '気になることをメモしよう！' %>
       <%= f.submit 'メモする', class: 'memo-submit' %>
     <% end %>
   </div>

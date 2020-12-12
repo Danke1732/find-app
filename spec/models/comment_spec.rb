@@ -16,7 +16,7 @@ RSpec.describe Comment, type: :model do
       it 'textが空のときは投稿ができない' do
         @comment.text = nil
         @comment.valid?
-        expect(@comment.errors.full_messages).to include('Text translation missing: ja.activerecord.errors.models.comment.attributes.text.blank')
+        expect(@comment.errors.full_messages).to include('コメントを入力してください')
       end
     end
   end
