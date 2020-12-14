@@ -3,7 +3,7 @@
 <main>
   <div class="container">
     <%= render '/shared/aside_articles' %>
-    <div class="articles-wrapper">
+    <div class="articles-wrapper user-note-wrapper">
       <div class="wrapper-title-area">
         <h2 class="wrapper-title">Note page</h2>
       </div>
@@ -12,6 +12,9 @@
           <div class="note-content">
             <p><%= note.text %></p>
             <p><%= l note.created_at %></p>
+            <% if current_user.id == note.user_id %>
+              <div class="note-delete fas fa-trash-alt" data-num="<%= note.id %>"></div>
+            <% end %>
           </div>
         <% end %>
       </div>
