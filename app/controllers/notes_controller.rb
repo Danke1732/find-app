@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:destroy]
 
   def index
     @user = User.find_by(id: params[:user_id])
@@ -17,6 +18,13 @@ class NotesController < ApplicationController
       @error_message = @note.errors.full_messages
       render json: { error_message: @error_message }
     end
+  end
+
+  def destroy
+    @note = Note.find_by(id: params[:id], user_id: current_user.id)
+    @note.destroy
+    @note = Note.find_by(id: params[:id], user_id: current_user.id)
+    render json: { note: @note }
   end
 
   private

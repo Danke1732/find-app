@@ -1,5 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :verify_authenticity_token, only: [:like]
 
   def index
     @user = User.find_by(id: params[:user_id])
@@ -17,9 +18,9 @@ class BookmarksController < ApplicationController
     end
     bookmark_after = Bookmark.find_by(article_id: params[:id], user_id: current_user.id)
     registration = if bookmark_after
-                     '登録済み'
+                     '外す'
                    else
-                     '登録する'
+                     'する'
                    end
     render json: { bookmark: bookmark_after, registration: registration }
   end

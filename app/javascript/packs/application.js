@@ -10,6 +10,7 @@ require('../category')
 require('../comment_delete')
 require('../bookmark')
 require('../note')
+require('../note_delete')
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
