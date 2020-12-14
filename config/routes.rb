@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     get '/bookmarks', to: 'bookmarks#index'
     get '/notes', to: 'notes#index'
   end
-  resources :notes, only: [:create]
+  resources :notes, only: [:create, :destroy]
 end
