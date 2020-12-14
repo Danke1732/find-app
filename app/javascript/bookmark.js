@@ -9,7 +9,7 @@ if (document.URL.match( /articles[/][0-9]/ )) {
     bookmarkBtn.addEventListener('click', () => {
       const articleId = bookmarkBtn.getAttribute('data-num');
       const XHR = new XMLHttpRequest();
-      XHR.open('GET', `/bookmarks/${articleId}`, true);
+      XHR.open('POST', `/bookmarks/${articleId}`, true);
       XHR.responseType = 'json';
       XHR.send();
       XHR.onload = () => {
@@ -21,10 +21,12 @@ if (document.URL.match( /articles[/][0-9]/ )) {
         let check = XHR.response.registration;
         if (bookmarksAfter != null) {
           bookmarkBtn.setAttribute('data-check', 'true');
-          articleMark.innerHTML = `ブックマーク${check}`;
+          articleMark.setAttribute('data-status', 'true')
+          articleMark.innerHTML = `ブックマーク登録を${check}`;
         } else if (bookmarksAfter == null) {
           bookmarkBtn.removeAttribute('data-check');
-          articleMark.innerHTML = `ブックマーク${check}`;
+          articleMark.setAttribute('data-status', 'false')
+          articleMark.innerHTML = `ブックマーク登録を${check}`;
         }
       }
     });

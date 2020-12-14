@@ -33,7 +33,7 @@
         <% end %>
         <% if user_signed_in? && current_user.id != @article.user.id %>
           <div class="bookmarks-btn" data-num=<%= @article.id %>>
-            <span class="article-marks btn">ブックマーク登録</span>
+            <span class="article-marks btn" data-status=<%= @bookmark %>>ブックマーク登録を<%= @bookmark_check %></span>
           </div>
         <% end %>
       </div>
