@@ -31,6 +31,7 @@ function note() {
         const html = `<div class="note-content">
         <p>${saveNote.text}</p>
         <p>${saveDate}</p>
+        <div class="note-delete fas fa-trash-alt" data-num="${saveNote.id}"></div>
         </div>`;
         noteBox.insertAdjacentHTML('afterbegin', html);
       }
