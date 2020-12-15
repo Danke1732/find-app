@@ -24,6 +24,21 @@
           padding: 16px;
           font-size: 18px;
         }
+
+        .article-post-image {
+          margin: 20px;
+        }
+
+        #image-content {
+          width: 100%;
+
+          .review-image {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+          }
+        }
       }
     }
   }

@@ -18,6 +18,7 @@
       <li><%= link_to "新着記事", root_path, class: 'side-menu-item' %></li>
       <% if user_signed_in? %>
         <li><%= link_to "ブックマーク", user_bookmarks_path(current_user.id), class: 'side-menu-item' %></li>
+        <li><%= link_to "#{current_user.nickname}さんの投稿記事", user_path(current_user), class: 'side-menu-item' %></li>
       <% end %>
     </ul>
   </div>
