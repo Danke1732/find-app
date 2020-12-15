@@ -1,5 +1,50 @@
 <%= render '/shared/header' %>
 
-<%= render '/shared/form' %>
+<div class="article-post-form">
+  <%= form_with model: @article, class: 'article-form', local: true do |f| %>
+    <div class='form-wrapper'>
+      <%= render 'shared/error_messages', model: f.object %>
+
+      <div class="article-form-group">
+        <div class='article-form-text-wrap'>
+          <label class="article-form-text">サムネイル画像</label>
+        </div>
+        <div>
+          <%= f.file_field :image, class:"article-post-image", id:"image" %>
+          <div id="image-content"><%= image_tag @article.image, class: "review-image" if @article.image.attached? %></div>
+        </div>
+      </div>
+
+      <div class="article-form-group">
+        <div class='article-form-text-wrap'>
+          <label class="article-form-text">タイトル名</label>
+        </div>
+        <%= f.text_field :title, class:"input-default", id:"title", maxlength:"50" %>
+      </div>
+
+      <div class="article-form-group">
+        <div class="article-form-text-wrap" id="select-category-area">
+          <label class="article-form-text">カテゴリー選択 ( ※再度入力してください )</label>
+          <div id="first-category">
+            <%= f.collection_select(:category_id, @category_parent_array, :id, :name, {include_blank: "---"}, { class: "input-default", id: 'category-select-box' }) %>
+          </div>
+        <div id="second-category"></div>
+        <div id="third-category"></div>
+        </div>
+      </div>
+
+      <div class="article-form-group">
+        <div class='article-form-text-wrap'>
+          <label class="article-form-text">記事内容</label>
+        </div>
+        <%= f.text_area :text, class:"input-article-default", id:"article-text", autofocus: true %>
+      </div>
+      <div class='register-btn'>
+        <%= f.submit "投稿する" ,class:"register-red-btn" %>
+      </div>
+    </div>
+  <% end %>  
+</div>
+
 
 <%= render '/shared/footer' %>
