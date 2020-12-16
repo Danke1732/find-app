@@ -26,7 +26,9 @@ class ArticlesController < ApplicationController
     get_category_path_name
     @comment = Comment.new
     @comments = @article.comments.includes(:user).order('created_at ASC')
-    bookmark_status = Bookmark.find_by(article_id: params[:id], user_id: current_user.id)
+    if user_signed_in?
+      bookmark_status = Bookmark.find_by(article_id: params[:id], user_id: current_user.id)
+    end
     if bookmark_status
       @bookmark = "true"
       @bookmark_check = "外す"
