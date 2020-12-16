@@ -1,4 +1,4 @@
-if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) || document.URL.match( /articles[/][0-9][/]edit/ )) {
+if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) || document.URL.match( /articles[/]\d+[/]edit/ )) {
   // カテゴリー親要素選択時の子要素表示
   function categoryParentSelect() {
     const parentCategoryBox = document.getElementById('category-select-box');

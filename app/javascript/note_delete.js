@@ -1,4 +1,4 @@
-if (document.URL.match(/users[/][0-9][/]notes/)) {
+if (document.URL.match(/users[/]\d+[/]notes/)) {
   function noteDelete() {
     let noteDeletes = document.querySelectorAll('.note-delete');
     for(let i = 0; i < noteDeletes.length; i++) {

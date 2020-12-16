@@ -1,4 +1,4 @@
-if (document.URL.match(/articles[/][0-9]/)) {
+if (document.URL.match(/articles[/]\d+/)) {
   function commentDelete() {
     let deletes = document.querySelectorAll('.comment-delete');
     for(let i = 0; i < deletes.length; i++) {
