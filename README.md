@@ -87,11 +87,7 @@ password : test11
 
   記事一覧及びブックマーク記事一覧、ログインユーザー（本人）投稿記事一覧、メモ一覧へそれぞれページネーション機能を設けました。
 
-  [![Image from Gyazo](https://i.gyazo.com/d8f46ecebd412c959b8fd538022e3be7.gif)](https://gyazo.com/d8f46ecebd412c959b8fd538022e3be7)
-
-  メモ一覧のページネーション機能
-
-  [![ページネーション機能メモ](https://i.gyazo.com/42921081216cf0860cb1c4b5782b7202.gif)](ページネーション機能の挙動2)
+  [![ページネーション機能](https://i.gyazo.com/8cdee4ea8a7f9ebffaaa5f91019b3872.gif)](ページネーション機能の挙動)
 
 ## 実装予定の機能
 
