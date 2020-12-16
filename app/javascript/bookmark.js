@@ -1,4 +1,4 @@
-if (document.URL.match( /articles[/][0-9]/ )) {
+if (document.URL.match( /articles[/]\d+/ )) {
   function like() {
     const bookmarkBtn = document.querySelector('.bookmarks-btn');
     const articleMark = document.querySelector('.article-marks');
