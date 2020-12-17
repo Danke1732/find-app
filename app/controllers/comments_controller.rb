@@ -7,7 +7,8 @@ class CommentsController < ApplicationController
     @article = Article.find_by(id: params[:article_id])
     if @comment.valid?
       @comment.save
-      ActionCable.server.broadcast 'comment_channel', content: @comment, user: @comment.user
+      @date = Date.current.strftime('%Y年 %m月 %d日')
+      ActionCable.server.broadcast 'comment_channel', content: @comment, user: @comment.user, date: @date
     else
       @error_message = @comment.errors.full_messages
       ActionCable.server.broadcast 'comment_channel', error_message: @error_message
