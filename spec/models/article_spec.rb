@@ -16,17 +16,17 @@ RSpec.describe Article, type: :model do
       it 'titleが空だと投稿することができない' do
         @article.title = nil
         @article.valid?
-        expect(@article.errors.full_messages).to include("タイトルを入力してください")
+        expect(@article.errors.full_messages).to include('タイトルを入力してください')
       end
       it 'imageが空だと投稿することができない' do
         @article.image = nil
         @article.valid?
-        expect(@article.errors.full_messages).to include("画像を入力してください")
+        expect(@article.errors.full_messages).to include('画像を入力してください')
       end
       it 'textが空だと投稿することができない' do
         @article.text = nil
         @article.valid?
-        expect(@article.errors.full_messages).to include("テキストを入力してください")
+        expect(@article.errors.full_messages).to include('テキストを入力してください')
       end
       it 'category_idがcategoryに紐づいたデータでないと投稿することができない' do
         @article.category = nil
