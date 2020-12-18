@@ -1,13 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe "Articles", type: :request do
-
+RSpec.describe 'Articles', type: :request do
   before do
     @user = FactoryBot.create(:user)
     @article = FactoryBot.create(:article)
   end
 
-  describe "GET #index" do
+  describe 'GET #index' do
     context 'ログインしてしないとき' do
       it 'indexアクションにリクエストすると正常にレスポンスが返ってくる' do
         get root_path
@@ -37,17 +36,17 @@ RSpec.describe "Articles", type: :request do
       it 'indexアクションにリクエストするとレスポンスにブックマークタブが存在する' do
         sign_in @user
         get root_path
-        expect(response.body).to include "ブックマーク"
+        expect(response.body).to include 'ブックマーク'
       end
       it 'indexアクションにリクエストするとレスポンスにノートタブが存在する' do
         sign_in @user
         get root_path
-        expect(response.body).to include "ノート"
+        expect(response.body).to include 'ノート'
       end
     end
   end
 
-  describe "GET #show" do
+  describe 'GET #show' do
     context 'ログインしていないとき' do
       it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do
         get article_path(@article)
@@ -79,20 +78,20 @@ RSpec.describe "Articles", type: :request do
       end
       it 'showアクションにリクエストするとレスポンスにコメント一覧BOX,コメント投稿BOXが存在する' do
         get article_path(@article)
-        expect(response.body).to include "コメント一覧BOX"
-        expect(response.body).to include "コメント投稿BOX"
+        expect(response.body).to include 'コメント一覧BOX'
+        expect(response.body).to include 'コメント投稿BOX'
       end
     end
     context 'ログインしているとき' do
       it 'showアクションにリクエストするとレスポンスに「コメントする」の文字列が存在する' do
         sign_in @user
         get article_path(@article)
-        expect(response.body).to include "コメントする"
+        expect(response.body).to include 'コメントする'
       end
     end
   end
 
-  describe "get #new" do
+  describe 'get #new' do
     context 'ログインしていないとき' do
       it 'newアクションにリクエストするとトップページへリダイレクトする' do
         get new_article_path
@@ -108,18 +107,18 @@ RSpec.describe "Articles", type: :request do
       it 'newアクションにリクエストするとレスポンスに「投稿する」の文字列がある' do
         sign_in @user
         get new_article_path
-        expect(response.body).to include "投稿する"
+        expect(response.body).to include '投稿する'
       end
     end
   end
 
-  describe "get #edit" do
+  describe 'get #edit' do
     context 'ログインしていないとき' do
       it 'editアクションにリクエストするとトップページへリダイレクトされる' do
         get edit_article_path(@article)
         expect(response.status).to eq 302
       end
-    end 
+    end
 
     context 'ログインしているとき' do
       it 'editアクションでリクエストすると正常にレスポンスが返ってくる' do
@@ -134,7 +133,7 @@ RSpec.describe "Articles", type: :request do
         get edit_article_path(@article)
         expect(response.body).to include @article.title
       end
-    end 
+    end
   end
 
   describe 'POST #create' do
