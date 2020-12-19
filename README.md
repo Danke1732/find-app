@@ -124,6 +124,7 @@ password : test11
 - has_many :bookmarks, dependent: :destroy
 - has_many :article_marks, through: :bookmarks, source: :article
 - has_many :notes
+- has_one  :profile
 
 ## articles テーブル
 
@@ -186,6 +187,15 @@ password : test11
 | Column         | Type           | Options                        |
 | -------------- | -------------  | ------------------------------ |
 | text           | text           | null: false                    |
+| user           | references     | null: false, foreign_key: true |
+
+## profiles テーブル
+
+| Column         | Type           | Options                        |
+| -------------- | -------------  | ------------------------------ |
+| hobby          | string         |                                |
+| favorite_word  | string         |                                |
+| introduction   | text           |                                |
 | user           | references     | null: false, foreign_key: true |
 
 ### Association

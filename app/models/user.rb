@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :article_marks, through: :bookmarks, source: :article
   has_many :notes
+  has_one :profile
 
   validates :nickname, presence: true
 end

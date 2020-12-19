@@ -23,6 +23,10 @@ ja:
         text: コメント
       note:
         text: ノート
+      profile:
+        hobby: "趣味"
+        favorite_word: "好きな言葉"
+        introduction: "自己紹介"
 
   time:
     formats:

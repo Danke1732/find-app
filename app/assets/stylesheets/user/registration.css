@@ -43,6 +43,10 @@
   padding-top: 20px;
 }
 
+#introduction {
+  height: 300px;
+}
+
 .form-group:first-child {
   padding: 0;
 }
