@@ -15,6 +15,10 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     get '/bookmarks', to: 'bookmarks#index'
     get '/notes', to: 'notes#index'
+    get '/profiles', to: 'profiles#show'
+    get '/profiles/edit', to: 'profiles#edit'
+    patch '/profiles/update', to: 'profiles#update'
   end
+  resources :profiles, only: [:new, :create]
   resources :notes, only: [:create, :destroy]
 end
