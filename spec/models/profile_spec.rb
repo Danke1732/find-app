@@ -27,12 +27,12 @@ RSpec.describe Profile, type: :model do
     it 'hobbyが140文字以上であれば登録できない' do
       @profile.hobby = '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901'
       @profile.valid?
-      expect(@profile.errors.full_messages).to include("趣味は140文字以内で入力してください")
+      expect(@profile.errors.full_messages).to include('趣味は140文字以内で入力してください')
     end
     it 'favorite_wordが140文字以上であれば登録できない' do
       @profile.favorite_word = '123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901'
       @profile.valid?
-      expect(@profile.errors.full_messages).to include("好きな言葉は140文字以内で入力してください")
+      expect(@profile.errors.full_messages).to include('好きな言葉は140文字以内で入力してください')
     end
   end
 end

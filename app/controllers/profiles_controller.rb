@@ -3,9 +3,9 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def new
-    @profile = Profile.new()
+    @profile = Profile.new
   end
-  
+
   def create
     @profile = Profile.new(profile_params)
     if @profile.valid?
@@ -15,11 +15,9 @@ class ProfilesController < ApplicationController
       render action: :new
     end
   end
-  
+
   def show
-    unless @profile.nil?
-      @profile = @user.profile
-    end
+    @profile = @user.profile unless @profile.nil?
     @articles = @user.articles.order('updated_at DESC').page(params[:page]).per(8)
   end
 
