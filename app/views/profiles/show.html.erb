@@ -1,0 +1,77 @@
+<%= render '/shared/header' %>
+
+<main>
+  <div class="container ">
+    <%= render '/shared/aside_articles' %>
+    <div class="articles-wrapper">
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title">User Profile</h2>
+      </div>
+      <div class="profile-display">
+        <div class="profile-box">
+          <div class='article-form-text-wrap'>
+            <h3 class="article-form-text">ニックネーム</h3>
+          </div>
+          <div class="profile-content">
+            <%= @user.nickname %>
+          </div>
+        </div>
+        <div class="profile-box">
+          <div class='article-form-text-wrap'>
+            <h3 class="article-form-text">趣味</h3>
+          </div>
+          <% if @user.profile.nil? || @user.profile.hobby == "" %>
+            <div class="profile-content">
+              設定されていません。
+            </div>
+          <% else %>
+            <div class="profile-content">
+              <%= @user.profile.hobby %>
+            </div>
+          <% end %>
+        </div>
+        <div class="profile-box">
+          <div class='article-form-text-wrap'>
+            <h3 class="article-form-text">好きな言葉</h3>
+          </div>
+          <% if @user.profile.nil? || @user.profile.favorite_word == "" %>
+            <div class="profile-content">
+              設定されていません。
+            </div>
+          <% else %>
+            <div class="profile-content">
+              <%= @user.profile.favorite_word %>
+            </div>
+          <% end %>
+        </div>
+        <div class="profile-box">
+          <div class='article-form-text-wrap'>
+            <h3 class="article-form-text">自己紹介</h3>
+          </div>
+          <% if @user.profile.nil? || @user.profile.introduction == "" %>
+            <div class="profile-content">
+              設定されていません。
+            </div>
+          <% else %>
+            <div class="profile-content">
+              <%= @user.profile.introduction %>
+            </div>
+          <% end %>
+        </div>
+        <% if user_signed_in? && current_user.id == @user.id %>
+          <% if @user.profile.nil? %>
+            <div class="edit-profile">
+              <%= link_to 'プロフィールを作成する', new_profile_path, class: 'profile-edit btn' %>
+            </div>
+          <% else %>
+            <div class="edit-profile">
+              <%= link_to 'プロフィールを編集する', user_profiles_edit_path(@user), class: 'profile-edit btn' %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render '/shared/footer' %>

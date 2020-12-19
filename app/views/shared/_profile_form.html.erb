@@ -1,0 +1,31 @@
+<div class='form-wrap'>
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      ユーザープロフィール情報入力
+    </h1>
+  </div>
+
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">趣味</label>
+    </div>
+    <%= f.text_field :hobby, class:"input-default", id:"hobby", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">好きな言葉</label>
+    </div>
+    <%= f.text_field :favorite_word, class:"input-default", id:"favorite_word", placeholder:"千里の道も一歩から" %>
+  </div>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">自己紹介</label>
+    </div>
+    <%= f.text_area :introduction, class:"input-default", id:"introduction", placeholder:"よろしくお願いします！！" %>
+  </div>
+  <div class='register-btn'>
+    <%= f.submit "更新する" ,class:"register-red-btn" %>
+  </div>
+</div>
