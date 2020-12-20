@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def index
+    @users = User.includes(:articles, :profile).order('updated_at DESC').page(params[:page]).per(8)
   end
 
   def show
