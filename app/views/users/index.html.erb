@@ -1,0 +1,54 @@
+<%= render '/shared/header' %>
+
+<main>
+  <div class="container">
+    <%= render '/shared/aside_articles' %>
+    <div class="articles-wrapper">
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title">User List</h2>
+      </div>
+      <div class="userlist-display">
+        <% @users.each do |user| %>
+          <%= link_to user_path(user.id), class: "profile-content" do %>
+            <h3 class="user-list-nickname">
+              <%= user.nickname %>
+            </h3>
+            <div class="user-list-info">
+              <div class="user-list-hobby">
+                <% if user.profile.nil? %>
+                  <p>趣味 : --- </p>
+                <% elsif user.profile.hobby == '' %>
+                  <p>趣味 : --- </p>
+                <% else %>
+                  <p>趣味 : <%= user.profile.hobby %></p>
+                <% end %>
+              </div>
+              <div class="user-list-favorite_word">
+                <% if user.profile.nil? %>
+                  <p>好きな言葉 : --- </p>
+                <% elsif user.profile.favorite_word == '' %>
+                  <p>好きな言葉 : --- </p>
+                <% else %>
+                  <p>好きな言葉 : <%= user.profile.favorite_word %></p>
+                <% end %>
+              </div>
+              <div class="user-list-bookmarks">
+                <% if user.articles.empty? %>
+                  <p>累計投稿記事数 : 0 </p>
+                <% else %>
+                  <p>累計投稿記事数 : <%= user.articles.count %></p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="page-list">
+        <%= paginate @users %>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<%= render '/shared/footer' %>

@@ -1,3 +1,54 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.articles-wrapper {
+
+  .userlist-display {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+    width: 100%;
+    color: #333;
+
+    .profile-content {
+      margin-bottom: 20px;
+      padding: 12px;
+      width: 100%;
+      word-wrap: break-word;
+      color: #333;
+      background: rgba(255, 112, 57, 0.1);
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      position: relative;
+      bottom: 0;
+      transition: all 0.2s;
+      border: 2px solid rgba(255, 112, 57, 0.2);
+
+      &:hover {
+        position: relative;
+        bottom: 3px;
+        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.18);
+        transition: all 0.2s;
+      }
+
+
+      .user-list-nickname {
+        font-size: 24px;
+        margin-bottom: 10px;
+        background:rgba(255, 112, 57, 0.5);
+        padding: 4px 12px;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      }
+
+      .user-list-info {
+        font-weight: bold;
+
+        .user-list-bookmarks {
+  
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
