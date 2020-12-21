@@ -19,7 +19,7 @@ RSpec.describe 'Notes', type: :request do
         expect(response.body).to include 'Note page'
       end
     end
-    
+
     context 'ログインしていないとき' do
       it 'ログインしていないとき' do
         get user_notes_path(@user.id)
@@ -33,14 +33,14 @@ RSpec.describe 'Notes', type: :request do
       it 'リクエストを送るとメモが登録される' do
         sign_in @user
         expect do
-          post notes_path, params: { note: { text: 'test', user_id: @user.id }}, xhr: true
+          post notes_path, params: { note: { text: 'test', user_id: @user.id } }, xhr: true
         end.to change(Note, :count).by(1)
       end
     end
 
     context 'ログインしていないとき' do
       it 'ログイン画面へリダイレクトする' do
-        post notes_path, params: { note: { text: "test", user_id: @user.id }}, xhr: true
+        post notes_path, params: { note: { text: 'test', user_id: @user.id } }, xhr: true
         expect(response.body).to include 'アカウント登録もしくはログインしてください。'
       end
     end
@@ -59,7 +59,7 @@ RSpec.describe 'Notes', type: :request do
 
     context 'ログインしていないとき' do
       it 'ログイン画面へリダイレクトする' do
-        post notes_path, params: { note: { text: "test", user_id: @user.id }}, xhr: true
+        post notes_path, params: { note: { text: 'test', user_id: @user.id } }, xhr: true
         expect(response.body).to include 'アカウント登録もしくはログインしてください。'
       end
     end

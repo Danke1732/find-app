@@ -4,7 +4,7 @@ RSpec.describe 'Bookmarks', type: :request do
   before do
     @user = FactoryBot.create(:user)
     @user2 = FactoryBot.create(:user)
-    @article =FactoryBot.create(:article)
+    @article = FactoryBot.create(:article)
   end
 
   describe 'GET #index' do
@@ -35,7 +35,7 @@ RSpec.describe 'Bookmarks', type: :request do
         sign_in @user2
         get article_path(@article.id)
         expect do
-          post "/bookmarks/#{@article.id}", params: { bookmark: { user_id: @user.id, article_id: @article.id }}, xhr: true
+          post "/bookmarks/#{@article.id}", params: { bookmark: { user_id: @user.id, article_id: @article.id } }, xhr: true
         end.to change(Bookmark, :count).by(1)
       end
       it 'ブックマークをしているとき、ブックマーク登録を外すことができること' do
@@ -43,10 +43,10 @@ RSpec.describe 'Bookmarks', type: :request do
         sign_in @user2
         get article_path(@article.id)
         expect do
-          post "/bookmarks/#{@article.id}", params: { bookmark: { user_id: @user.id, article_id: @article.id }}, xhr: true
+          post "/bookmarks/#{@article.id}", params: { bookmark: { user_id: @user.id, article_id: @article.id } }, xhr: true
         end.to change(Bookmark, :count).by(-1)
       end
-    end    
+    end
 
     context 'ログインしていないとき' do
       it 'ログイン画面へリダイレクトする' do

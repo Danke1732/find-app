@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "DeviseUsers", type: :request do
+RSpec.describe 'DeviseUsers', type: :request do
   before do
     @user = FactoryBot.create(:user)
     @user_params = FactoryBot.attributes_for(:user)
-    @invalid_user_params = FactoryBot.attributes_for(:user, nickname: "")
-  end 
+    @invalid_user_params = FactoryBot.attributes_for(:user, nickname: '')
+  end
 
-  describe "POST registrations#create" do
+  describe 'POST registrations#create' do
     context 'パラメータが妥当な場合' do
       it 'リクエストが成功すること' do
         post user_registration_path, params: { user: @user_params }
@@ -47,11 +47,11 @@ RSpec.describe "DeviseUsers", type: :request do
 
   describe 'POST sessions#create' do
     it 'リクエストが成功すること' do
-      post user_session_path, params: { user: { email: @user.email, password: @user.password }}
+      post user_session_path, params: { user: { email: @user.email, password: @user.password } }
       expect(response.status).to eq 302
     end
     it 'リダイレクトされること' do
-      post user_session_path, params: { user: { email: @user.email, password: @user.password }}
+      post user_session_path, params: { user: { email: @user.email, password: @user.password } }
       expect(response.status).to redirect_to root_path
     end
   end
