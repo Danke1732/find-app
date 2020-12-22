@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "ユーザー新規登録", type: :system do
+RSpec.describe 'ユーザー新規登録', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -19,9 +19,9 @@ RSpec.describe "ユーザー新規登録", type: :system do
       fill_in 'パスワード', with: @user.password
       fill_in 'パスワード(確認)', with: @user.password_confirmation
       # サインアップボタンを押すとユーザーモデルのカウントが1上がる
-      expect {
+      expect do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(1)
+      end.to change { User.count }.by(1)
       # トップページへ遷移する
       expect(current_path).to eq root_path
       # ログアウトボタンが表示されている
@@ -41,14 +41,14 @@ RSpec.describe "ユーザー新規登録", type: :system do
       # 新規登録ページへ移動する
       visit new_user_registration_path
       # ユーザー情報を入力する
-      fill_in 'ニックネーム', with: ""
-      fill_in 'メールアドレス', with: ""
-      fill_in 'パスワード', with: ""
-      fill_in 'パスワード(確認)', with: ""
+      fill_in 'ニックネーム', with: ''
+      fill_in 'メールアドレス', with: ''
+      fill_in 'パスワード', with: ''
+      fill_in 'パスワード(確認)', with: ''
       # サインアップボタンを押してもユーザーモデルのカウントは上がらない
-      expect {
+      expect do
         find('input[name="commit"]').click
-      }.to change { User.count }.by(0)
+      end.to change { User.count }.by(0)
       # 新規登録ページへ戻される
       expect(current_path).to eq '/users'
     end
@@ -91,8 +91,8 @@ RSpec.describe 'ログイン', type: :system do
       # ログインページに移動する
       visit new_user_session_path
       # 誤ったユーザー情報を入力する
-      fill_in 'メールアドレス', with: ""
-      fill_in 'パスワード', with: ""
+      fill_in 'メールアドレス', with: ''
+      fill_in 'パスワード', with: ''
       # ログインボタンを押す
       find('input[name="commit"]').click
       # ログインページに戻される
