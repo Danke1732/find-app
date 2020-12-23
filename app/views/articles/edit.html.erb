@@ -7,7 +7,7 @@
 
       <div class="article-form-group">
         <div class='article-form-text-wrap'>
-          <label class="article-form-text">サムネイル画像</label>
+          <label for="image" class="article-form-text">サムネイル画像</label>
         </div>
         <div>
           <%= f.file_field :image, class:"article-post-image", id:"image" %>
@@ -17,14 +17,14 @@
 
       <div class="article-form-group">
         <div class='article-form-text-wrap'>
-          <label class="article-form-text">タイトル名</label>
+          <label for="title" class="article-form-text">タイトル名</label>
         </div>
         <%= f.text_field :title, class:"input-default", id:"title", maxlength:"50" %>
       </div>
 
       <div class="article-form-group">
         <div class="article-form-text-wrap" id="select-category-area">
-          <label class="article-form-text">カテゴリー選択 ( ※再度入力してください )</label>
+          <label for="category-select-box" class="article-form-text">カテゴリー選択 ( ※再度入力してください )</label>
           <div id="first-category">
             <%= f.collection_select(:category_id, @category_parent_array, :id, :name, {include_blank: "---"}, { class: "input-default", id: 'category-select-box' }) %>
           </div>
@@ -35,7 +35,7 @@
 
       <div class="article-form-group">
         <div class='article-form-text-wrap'>
-          <label class="article-form-text">記事内容</label>
+          <label for="article-text" class="article-form-text">記事内容</label>
         </div>
         <%= f.text_area :text, class:"input-article-default", id:"article-text", autofocus: true %>
       </div>
