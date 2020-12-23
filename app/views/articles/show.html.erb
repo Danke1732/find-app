@@ -71,7 +71,7 @@
         <div class="wrapper-title-area">
           <h2 class="wrapper-title">コメント投稿BOX</h2>
         </div>
-        <div class="comment-box" id="<%= @article.id %>%">
+        <div class="comment-box" id="<%= @article.id %>">
           <%= form_with model: [@article, @comment], id: "comment-form" do |f| %>
             <%= render 'shared/error_messages', model: @comment %>
             <div class="comment-text-box">
