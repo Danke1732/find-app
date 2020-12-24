@@ -78,7 +78,7 @@
               <%= f.text_area :text, class: "comment-text" %>
             </div>
             <% if user_signed_in? %>
-              <%= f.submit 'コメントする', class:"comment-flag-icon" %>
+              <%= f.submit 'コメントする', class:"comment-flag-icon comment-submit" %>
             <% else %>
               <%= link_to '新規登録',  new_user_registration_path, class: "comment-flag-icon comment-signup" %>
               <%= link_to 'ログイン', new_user_session_path, class: "comment-flag-icon comment-signin" %>
