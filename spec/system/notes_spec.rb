@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "メモ保存", type: :system do
+RSpec.describe 'メモ保存', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @article = FactoryBot.create(:article, user_id: @user.id)
@@ -106,8 +106,8 @@ RSpec.describe 'メモ削除', type: :system do
       sleep 1
       expect do
         find('.note-delete').click
-      sleep 1
-      end.to change{ Note.count }.by(-1)
+        sleep 1
+      end.to change { Note.count }.by(-1)
       # メモ一覧ページから保存していたメモが存在していないのを確認する
       expect(page).to have_no_content(@note.text)
     end

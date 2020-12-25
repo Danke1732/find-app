@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "プロフィール登録", type: :system do
+RSpec.describe 'プロフィール登録', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @profile_hobby = Faker::Lorem.sentence
@@ -13,11 +13,11 @@ RSpec.describe "プロフィール登録", type: :system do
       # @userでログインする
       sign_in(@user)
       # プロフィール一覧ページへの遷移リンクが存在することを確認する
-      expect(find('.user_sign_in')).to have_link "#{@user.nickname}", href: user_profiles_path(@user)
+      expect(find('.user_sign_in')).to have_link @user.nickname.to_s, href: user_profiles_path(@user)
       # プロフィール一覧ページへ移動する
       find('.user_name').click
       # プロフィール新規作成ページへの遷移リンクが存在することを確認する
-      expect(page).to have_link "プロフィールを作成する", href: new_profile_path
+      expect(page).to have_link 'プロフィールを作成する', href: new_profile_path
       # プロフィール新規作成ページへ移動する
       click_on 'プロフィールを作成する'
       # フォームに情報を入力する
@@ -27,7 +27,7 @@ RSpec.describe "プロフィール登録", type: :system do
       # 送信するとProfileモデルのカウントが1上がることを確認する
       expect do
         find('input[name="commit"]').click
-      end.to change{ Profile.count }.by(1)
+      end.to change { Profile.count }.by(1)
       # プロフィール一覧画面に遷移する
       expect(current_path).to eq user_profiles_path(@user)
       # プロフィール一覧画面には先ほど入力したプロフィール内容が存在する(趣味)
@@ -44,7 +44,7 @@ RSpec.describe "プロフィール登録", type: :system do
       # トップページにいる
       visit root_path
       # プロフィール一覧の遷移リンクが存在しないことを確認する
-      expect(page).to have_no_link "#{@user.nickname}", href: user_profiles_path(@user)
+      expect(page).to have_no_link @user.nickname.to_s, href: user_profiles_path(@user)
     end
   end
 end
@@ -63,11 +63,11 @@ RSpec.describe 'プロフィール編集', type: :system do
       # @userでログインする
       sign_in(@user)
       # プロフィール一覧ページへの遷移リンクが存在することを確認する
-      expect(find('.user_sign_in')).to have_link "#{@user.nickname}", href: user_profiles_path(@user)
+      expect(find('.user_sign_in')).to have_link @user.nickname.to_s, href: user_profiles_path(@user)
       # プロフィール一覧ページへ移動する
       find('.user_name').click
       # プロフィール新規作成ページへの遷移リンクが存在することを確認する
-      expect(page).to have_link "プロフィールを編集する", href: user_profiles_edit_path(@user)
+      expect(page).to have_link 'プロフィールを編集する', href: user_profiles_edit_path(@user)
       # プロフィール新規作成ページへ移動する
       click_on 'プロフィールを編集する'
       # フォームにはすでに作成済みのプロフィール内容がフォーム内に入っている
@@ -81,7 +81,7 @@ RSpec.describe 'プロフィール編集', type: :system do
       # 送信するとProfileモデルのカウントが1上がることを確認する
       expect do
         find('input[name="commit"]').click
-      end.to change{ Profile.count }.by(0)
+      end.to change { Profile.count }.by(0)
       # プロフィール一覧画面に遷移する
       expect(current_path).to eq user_profiles_path(@user)
       # プロフィール一覧画面には先ほど入力したプロフィール内容が存在する(趣味)
@@ -97,7 +97,7 @@ RSpec.describe 'プロフィール編集', type: :system do
       # トップページにいる
       visit root_path
       # プロフィール一覧の遷移リンクが存在しないことを確認する
-      expect(page).to have_no_link "#{@user.nickname}", href: user_profiles_path(@user)
+      expect(page).to have_no_link @user.nickname.to_s, href: user_profiles_path(@user)
     end
   end
 end

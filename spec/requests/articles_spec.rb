@@ -5,7 +5,7 @@ RSpec.describe 'Articles', type: :request do
     @user = FactoryBot.create(:user)
     @user2 = FactoryBot.create(:user)
     @article = FactoryBot.create(:article)
-    @article2= FactoryBot.create(:article, user_id: @user2.id)
+    @article2 = FactoryBot.create(:article, user_id: @user2.id)
   end
 
   describe 'GET #index' do
@@ -158,9 +158,9 @@ RSpec.describe 'Articles', type: :request do
   describe 'POST #create' do
     before do
       # カテゴリー選択用
-      work = Category.create(id: 1, name: "仕事・仕事術")
-      work_1 = work.children.create(id: 2, name: "効率")
-      work_1.children.create([{id: 3, name: "ツール"},{id: 4, name: "マインド"},{id: 5, name: "その他"}])
+      work = Category.create(id: 1, name: '仕事・仕事術')
+      work_1 = work.children.create(id: 2, name: '効率')
+      work_1.children.create([{ id: 3, name: 'ツール' }, { id: 4, name: 'マインド' }, { id: 5, name: 'その他' }])
     end
 
     context 'パラメータが妥当な場合' do
@@ -211,9 +211,9 @@ RSpec.describe 'Articles', type: :request do
   describe 'PATCH #update' do
     before do
       # カテゴリー選択用
-      work = Category.create(id: 1, name: "仕事・仕事術")
-      work_1 = work.children.create(id: 2, name: "効率")
-      work_1.children.create([{id: 3, name: "ツール"},{id: 4, name: "マインド"},{id: 5, name: "その他"}])
+      work = Category.create(id: 1, name: '仕事・仕事術')
+      work_1 = work.children.create(id: 2, name: '効率')
+      work_1.children.create([{ id: 3, name: 'ツール' }, { id: 4, name: 'マインド' }, { id: 5, name: 'その他' }])
     end
 
     context 'パラメータが正常な場合' do
@@ -228,7 +228,7 @@ RSpec.describe 'Articles', type: :request do
         article_params = FactoryBot.attributes_for(:article_test, image: fixture_file_upload('public/images/test-image.jpg'), user_id: @user2.id)
         expect do
           patch article_path(@article2), params: { article: article_params }
-        end.to change{ Article.find(@article2.id).text }.from(@article2.text).to('testtest')
+        end.to change { Article.find(@article2.id).text }.from(@article2.text).to('testtest')
       end
       it 'リダイレクトされる' do
         sign_in @user2

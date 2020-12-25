@@ -8,9 +8,9 @@ module NoteSubmitSupport
     expect do
       find('input[value="メモする"]').click
       sleep 0.5
-    end.to change{ Note.count }.by(1)
+    end.to change { Note.count }.by(1)
     # フォームに入力した記述がないことを確認する
     value = find('#memo-field')
-    expect(value[:value]).to eq ""
+    expect(value[:value]).to eq ''
   end
 end
