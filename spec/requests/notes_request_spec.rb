@@ -3,7 +3,8 @@ require 'rails_helper'
 RSpec.describe 'Notes', type: :request do
   before do
     @user = FactoryBot.create(:user)
-    @note = FactoryBot.create(:note)
+    @user2 = FactoryBot.create(:user)
+    @note = FactoryBot.create(:note, user_id: @user.id)
   end
 
   describe 'GET #index' do
@@ -21,9 +22,17 @@ RSpec.describe 'Notes', type: :request do
     end
 
     context 'ログインしていないとき' do
-      it 'ログインしていないとき' do
+      it 'ログイン画面へリダイレクトする' do
         get user_notes_path(@user.id)
         expect(response).to redirect_to new_user_session_path
+      end
+    end
+
+    context 'メモ投稿者自身のページにのみしかメモ一覧ページへ遷移できない' do
+      it 'トップページにリダイレクトする' do
+        sign_in @user2
+        get user_notes_path(@user.id)
+        expect(response).to redirect_to root_path
       end
     end
   end

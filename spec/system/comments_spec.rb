@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "コメント投稿", type: :system do
+RSpec.describe 'コメント投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
     @user2 = FactoryBot.create(:user)
@@ -56,8 +56,8 @@ RSpec.describe 'コメント削除', type: :system, js: true do
       expect(page).to have_content(@comment.text)
       expect(page).to have_selector('.comment-delete')
       # 削除ボタンを押して送信後、コメントが存在していないのを確認する
+      sleep 3
       find('.comment-delete').click
-      wait_for_ajax
       expect(page).to have_no_content(@comment.text)
     end
     it 'ログインしている記事の投稿者はコメントを削除することができる' do
@@ -69,8 +69,8 @@ RSpec.describe 'コメント削除', type: :system, js: true do
       expect(page).to have_content(@comment.text)
       expect(page).to have_selector('.comment-delete')
       # 削除ボタンを押して送信後、コメントが存在していないのを確認する
+      sleep 3
       find('.comment-delete').click
-      wait_for_ajax
       expect(page).to have_no_content(@comment.text)
     end
   end
