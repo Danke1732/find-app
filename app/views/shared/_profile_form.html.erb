@@ -9,19 +9,19 @@
 
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">趣味</label>
+      <label for="hobby" class="form-text">趣味</label>
     </div>
     <%= f.text_field :hobby, class:"input-default", id:"hobby", autofocus: true %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">好きな言葉</label>
+      <label for="favorite_word" class="form-text">好きな言葉</label>
     </div>
     <%= f.text_field :favorite_word, class:"input-default", id:"favorite_word", placeholder:"千里の道も一歩から" %>
   </div>
   <div class="form-group">
     <div class='form-text-wrap'>
-      <label class="form-text">自己紹介</label>
+      <label for="introduction" class="form-text">自己紹介</label>
     </div>
     <%= f.text_area :introduction, class:"input-default", id:"introduction", placeholder:"よろしくお願いします！！" %>
   </div>
