@@ -14,5 +14,6 @@ FactoryBot.define do
     title { 'test' }
     text { 'testtest' }
     category_id { 3 }
+    association :user
   end
 end

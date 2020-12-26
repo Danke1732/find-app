@@ -42,12 +42,41 @@
       .user-list-info {
         font-weight: bold;
 
-        .user-list-bookmarks {
-  
+        .user-list-articles {
+          margin-bottom: 16px;
+
           p {
             margin-bottom: 0;
           }
         }
+
+        .user-list-link {
+          display: flex;
+  
+          li {
+  
+            .user-link {
+              background:  rgb(0, 155, 232);
+              display: block;
+              color: #fff;
+              padding: 8px;
+              border-radius: 10px;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+              border: 2px solid rgba(0, 0, 0, 0);
+              transition: all 0.3s;
+              margin-right: 16px;
+
+              &:hover {
+                border: 2px solid rgba(0, 155, 232, 1);
+                background: rgba(255, 255, 255, 0.8);
+                color: rgba(0, 155, 232, 1);
+                transition: all 0.3s;
+              }
+            }
+          }
+      }
+
+
       }
     }
   }
