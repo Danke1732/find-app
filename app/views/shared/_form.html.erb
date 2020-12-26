@@ -24,7 +24,7 @@
         <div class="article-form-text-wrap" id="select-category-area">
           <label for="category-select-box" class="article-form-text">カテゴリー選択</label>
           <div id="first-category">
-            <%= f.collection_select(:category_id, @category_parent_array, :id, :name, {include_blank: "---"}, { class: "input-default", id: 'category-select-box' }) %>
+            <%= f.collection_select(:parent_category, @category_parent_array, :id, :name, {include_blank: '---'}, { class: "input-default", id: 'category-select-box' }) %>
           </div>
         <div id="second-category"></div>
         <div id="third-category"></div>
