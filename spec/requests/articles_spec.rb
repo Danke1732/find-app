@@ -120,6 +120,12 @@ RSpec.describe 'Articles', type: :request do
   end
 
   describe 'get #edit' do
+    before do
+      work = Category.create(id: 1, name: '仕事・仕事術')
+      work_1 = work.children.create(id: 2, name: '効率')
+      work_1.children.create([{ id: 3, name: 'ツール' }, { id: 4, name: 'マインド' }, { id: 5, name: 'その他' }])
+      @article_test = FactoryBot.create(:article_test, image: fixture_file_upload('public/images/test-image.jpg'), user_id: @user2.id)
+    end
     context 'ログインしていないとき' do
       it 'editアクションにリクエストするとトップページへリダイレクトされる' do
         get edit_article_path(@article)
@@ -129,27 +135,28 @@ RSpec.describe 'Articles', type: :request do
 
     context 'ログインしているとき' do
       it 'editアクションでリクエストすると正常にレスポンスが返ってくる' do
-        @user2 = @article.user
         sign_in @user2
-        get edit_article_path(@article)
+        get edit_article_path(@article_test)
         expect(response.status).to eq 200
       end
       it 'editアクションでリクエストすると投稿記事タイトルがすでに存在する' do
-        @user2 = @article.user
         sign_in @user2
-        get edit_article_path(@article)
-        expect(response.body).to include @article.title
+        get edit_article_path(@article_test)
+        expect(response.body).to include @article_test.title
       end
       it 'editアクションでリクエストすると投稿記事テキストがすでに存在する' do
-        @user2 = @article.user
         sign_in @user2
-        get edit_article_path(@article)
-        expect(response.body).to include @article.text
+        get edit_article_path(@article_test)
+        expect(response.body).to include @article_test.text
+      end
+      it 'editアクションでリクエストすると投稿記事カテゴリーがすでに存在する' do
+        sign_in @user2
+        get edit_article_path(@article_test)
+        expect(response.body).to include @article_test.category.name
       end
       it 'editアクションでリクエストすると投稿記事の画像がすでに存在する' do
-        @user2 = @article.user
         sign_in @user2
-        get edit_article_path(@article)
+        get edit_article_path(@article_test)
         expect(response.body).to include 'test-image.jpg'
       end
     end
@@ -214,26 +221,27 @@ RSpec.describe 'Articles', type: :request do
       work = Category.create(id: 1, name: '仕事・仕事術')
       work_1 = work.children.create(id: 2, name: '効率')
       work_1.children.create([{ id: 3, name: 'ツール' }, { id: 4, name: 'マインド' }, { id: 5, name: 'その他' }])
+      @article3 = FactoryBot.create(:article, category_id: 3, image: fixture_file_upload('public/images/test-image.jpg'), user_id: @user2.id)
     end
 
     context 'パラメータが正常な場合' do
       it 'リクエストが成功すること' do
         sign_in @user2
         article_params = FactoryBot.attributes_for(:article_test, image: fixture_file_upload('public/images/test-image.jpg'), user_id: @user2.id)
-        patch article_path(@article2), params: { article: article_params }
+        patch article_path(@article3), params: { article: article_params }
         expect(response.status).to eq 302
       end
       it '記事内容が更新されること' do
         sign_in @user2
         article_params = FactoryBot.attributes_for(:article_test, image: fixture_file_upload('public/images/test-image.jpg'), user_id: @user2.id)
         expect do
-          patch article_path(@article2), params: { article: article_params }
-        end.to change { Article.find(@article2.id).text }.from(@article2.text).to('testtest')
+          patch article_path(@article3), params: { article: article_params }
+        end.to change { Article.find(@article3.id).text }.from(@article3.text).to('testtest')
       end
       it 'リダイレクトされる' do
         sign_in @user2
         article_params = FactoryBot.attributes_for(:article_test, image: fixture_file_upload('public/images/test-image.jpg'), user_id: @user2.id)
-        patch article_path(@article2), params: { article: article_params }
+        patch article_path(@article3), params: { article: article_params }
         expect(response).to redirect_to root_path
       end
     end
