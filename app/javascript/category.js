@@ -3,7 +3,6 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
   function categoryParentSelect() {
     const parentCategoryBox = document.getElementById('category-select-box');
     const secondCategoryArea = document.getElementById('second-category');
-    const thirdCategoryArea = document.getElementById('third-category');
     if (parentCategoryBox.getAttribute('data-load') != null) {
       return null;
     }
@@ -21,11 +20,13 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
             return null;
           }
           // 子要素カテゴリー及び孫要素カテゴリーがあれば削除
-          if (thirdCategoryArea.firstChild) {
-            thirdCategoryArea.removeChild(thirdCategoryArea.firstChild);
+          const select2 = document.getElementById('category-select-box2');
+          const select3 = document.getElementById('category-select-box3');
+          if (select2) {
+            select2.remove();
           }
-          if (secondCategoryArea.firstChild) {
-            secondCategoryArea.removeChild(secondCategoryArea.firstChild);
+          if (select3) {
+            select3.remove();
           }
           // json返却
           const categoryChildren = XHR.response.children;
@@ -36,7 +37,7 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
           childrenCategoryBox.setAttribute('name', 'article[category_id]');
           // 子要素カテゴリーoption要素作成('---'の作成)
           const optionFirst = document.createElement('option');
-          optionFirst.innerHTML = '---';
+          optionFirst.innerHTML = '';
           childrenCategoryBox.appendChild(optionFirst);
           // 子要素カテゴリーoption要素作成(各親要素ごとの子要素)
           categoryChildren.forEach((child) => {
@@ -50,11 +51,13 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
         }
       } else {
         // 子要素カテゴリー及び孫要素カテゴリーがあれば削除
-        if (thirdCategoryArea.firstChild) {
-          thirdCategoryArea.removeChild(thirdCategoryArea.firstChild);
+        const select2 = document.getElementById('category-select-box2');
+        const select3 = document.getElementById('category-select-box3');
+        if (select2) {
+          select2.remove();
         }
-        if (secondCategoryArea.firstChild) {
-          secondCategoryArea.removeChild(secondCategoryArea.firstChild);
+        if (select3) {
+          select3.remove();
         }
       }
     });
@@ -70,7 +73,7 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
     childrenCategoryBox.setAttribute('data-load', 'true');
     childrenCategoryBox.addEventListener('change', () => {
       let childCategory = document.getElementById('category-select-box2').value;
-      if (childCategory != '---') {
+      if (childCategory != '') {
         const XHR = new XMLHttpRequest();
         XHR.open('GET', `/articles/get_category_grandchildren/${childCategory}`, true);
         XHR.responseType = 'json';
@@ -81,8 +84,9 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
             return null;
           }
           // 孫要素カテゴリーがあれば削除
-          if (thirdCategoryArea.firstChild) {
-            thirdCategoryArea.removeChild(thirdCategoryArea.firstChild);
+          const select3 = document.getElementById('category-select-box3');
+          if (select3) {
+            select3.remove();
           }
           // jsonデータ返却
           const categoryGrandChildren = XHR.response.grandChildren;
@@ -93,7 +97,7 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
           grandChildrenCategoryBox.setAttribute('name', 'article[category_id]');
           // 孫要素カテゴリーoption要素作成('---'の作成)
           const optionFirst = document.createElement('option');
-          optionFirst.innerHTML = '---';
+          optionFirst.innerHTML = '';
           grandChildrenCategoryBox.appendChild(optionFirst);
           // 孫要素カテゴリーoption要素作成(各子要素ごとの孫要素)
           categoryGrandChildren.forEach((grandChild) => {
@@ -107,8 +111,9 @@ if (document.URL.match( /articles[/]new/ ) || document.URL.match( /articles/ ) |
         }
       } else {
         // 孫要素カテゴリーがあれば削除
-        if (thirdCategoryArea.firstChild) {
-          thirdCategoryArea.removeChild(thirdCategoryArea.firstChild);
+        const select3 = document.getElementById('category-select-box3');
+        if (select3) {
+          select3.remove();
         }
       }
     });
