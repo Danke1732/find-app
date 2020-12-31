@@ -13,7 +13,7 @@
         </div>
         <div class="user-day-info">
           <div class="user-info">
-            投稿者 : <%= @article.user.nickname %>
+            投稿者 : <%= link_to @article.user.nickname, user_path(@article.user.id) %>
           </div>
           <div class="day-info">
             <%= l @article.updated_at %> 更新
