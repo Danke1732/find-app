@@ -21,6 +21,7 @@
         <li><%= link_to "#{current_user.nickname}さんの投稿記事", user_path(current_user), class: 'side-menu-item' %></li>
         <li><%= link_to "ユーザー一覧", users_path, class: 'side-menu-item' %></li>
       <% end %>
+        <li><%= link_to "ブックマークランキング", ranking_articles_path, class: 'side-menu-item' %></li>
     </ul>
   </div>
   <% if user_signed_in? %>

@@ -1,17 +1,14 @@
-<%= render 'shared/header' %>
+<%= render '/shared/header' %>
 
 <main>
   <div class="container">
     <%= render '/shared/aside_articles' %>
-    <div class="articles-wrapper user-article-wrapper">
+    <div class="articles-wrapper">
       <div class="wrapper-title-area">
-        <h2 class="wrapper-title">My Page</h2>
-      </div>
-      <div class="contents-title-area">
-        <h2 class="wrapper-title"><%= @user.nickname %>さんの投稿記事</h2>
+        <h2 class="wrapper-title">Bookmark Ranking</h2>
       </div>
       <div class="article-display">
-        <% @user_articles.each do |article| %>
+        <% @articles.each do |article| %>
           <%= link_to article_path(article), class: 'article-box' do %>
             <div class="article-content">
               <div>
@@ -19,11 +16,12 @@
               </div>
               <div class="article-low-content">
                 <h2 class="content-title"><%= article.title %></h2>
-                <p class="content-user">投稿者: <%= article.user.nickname %></p>
+                <p class="content-user">投稿者 : <%= article.user.nickname %></p>
+                <p class="content-user">ブックマーク数 : <%= article.bookmarks.count%></p>
               </div>
             </div>
           <% end %>
-        <% end %>
+        <% end %>  
       </div>
       <div class="page-list">
         <%= paginate @articles %>
@@ -32,4 +30,5 @@
   </div>
 </main>
 
-<%= render 'shared/footer' %>
+
+<%= render '/shared/footer' %>

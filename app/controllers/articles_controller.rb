@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   before_action :article_user_check, only: [:edit, :update, :destroy]
 
   def index
-    @articles = Article.includes(:user).order('updated_at DESC').page(params[:page]).per(8)
+    @articles = Article.includes(:user).with_attached_image.order('updated_at DESC').page(params[:page]).per(8)
   end
 
   def new
@@ -65,8 +65,12 @@ class ArticlesController < ApplicationController
       keyword_search
       @articles = Kaminari.paginate_array(@article).page(params[:page]).per(8)
     else
-      @articles = Article.includes(:user).order('updated_at DESC').page(params[:page]).per(8)
+      @articles = Article.includes(:user).with_attached_image.order('updated_at DESC').page(params[:page]).per(8)
     end
+  end
+
+  def ranking
+    @articles = Article.joins(:bookmarks).includes(:user).with_attached_image.group(:article_id).order('count(article_id) desc').page(params[:page]).per(8)
   end
 
   def get_category_children
@@ -126,7 +130,7 @@ class ArticlesController < ApplicationController
 
   def keyword_search
     @split_keywords.each do |keyword|
-      Article.where('title LIKE(?) OR text LIKE(?)', "%#{keyword}%", "%#{keyword}%").each do |answer|
+      Article.where('title LIKE(?) OR text LIKE(?)', "%#{keyword}%", "%#{keyword}%").includes(:user).with_attached_image.each do |answer|
         @article.push(answer)
       end
     end
