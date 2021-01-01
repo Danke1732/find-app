@@ -11,7 +11,7 @@
         <h2 class="wrapper-title"><%= @user.nickname %>さんの投稿記事</h2>
       </div>
       <div class="article-display">
-        <% @user.articles.each do |article| %>
+        <% @user_articles.each do |article| %>
           <%= link_to article_path(article), class: 'article-box' do %>
             <div class="article-content">
               <div>

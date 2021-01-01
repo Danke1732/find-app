@@ -5,7 +5,7 @@ class BookmarksController < ApplicationController
   def index
     @user = User.find_by(id: params[:user_id])
     redirect_to root_path if current_user.id != @user.id
-    @articles = @user.article_marks.order('created_at DESC').page(params[:page]).per(8)
+    @articles = @user.article_marks.includes(:user).order('created_at DESC').with_attached_image.page(params[:page]).per(8)
   end
 
   def like
