@@ -286,4 +286,18 @@ RSpec.describe 'Articles', type: :request do
       expect(response).to redirect_to root_path
     end
   end
+
+  describe 'GET #ranking' do
+    before do
+      @bookmark = Bookmark.create(article_id: @article2.id, user_id: @user.id)
+    end
+    it 'rankingアクションにリクエストすると正常なレスポンスが返ってくる' do
+      get ranking_articles_path
+      expect(response.status).to eq 200
+    end
+    it 'rankingアクションにリクエストするとレスポンスに各記事にブックマーク数が表示されている' do
+      get ranking_articles_path
+      expect(response.body).to include 'ブックマーク数'
+    end
+  end
 end
