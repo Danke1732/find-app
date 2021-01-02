@@ -17,7 +17,7 @@
               <div class="article-low-content">
                 <h2 class="content-title"><%= article.title %></h2>
                 <p class="content-user">投稿者 : <%= article.user.nickname %></p>
-                <p class="content-user">ブックマーク数 : <%= article.bookmarks.count%></p>
+                <p class="content-user">ブックマーク数 : <%= article.bookmarks.length %></p>
               </div>
             </div>
           <% end %>

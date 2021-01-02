@@ -36,7 +36,7 @@
                 <% if user.articles.empty? %>
                   <p>累計投稿記事数 : 0 </p>
                 <% else %>
-                  <p>累計投稿記事数 : <%= user.articles.count %></p>
+                  <p>累計投稿記事数 : <%= user.articles.length %></p>
                 <% end %>
               </div>
               <ul class="user-list-link">

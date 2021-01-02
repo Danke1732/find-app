@@ -70,7 +70,7 @@ class ArticlesController < ApplicationController
   end
 
   def ranking
-    @articles = Article.joins(:bookmarks).includes(:user).with_attached_image.group(:article_id).order('count(article_id) desc').page(params[:page]).per(8)
+    @articles = Article.joins(:bookmarks).includes(:user, :bookmarks).with_attached_image.group(:article_id).order('count(article_id) desc').page(params[:page]).per(8)
   end
 
   def get_category_children
