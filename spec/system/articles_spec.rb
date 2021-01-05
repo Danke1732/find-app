@@ -316,3 +316,39 @@ RSpec.describe '記事検索', type: :system do
     expect(page).to have_content(@user.nickname)
   end
 end
+
+RSpec.describe '商品詳細ページ切り替え', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+    @user2 = FactoryBot.create(:user)
+    @article = FactoryBot.create(:article, user_id: @user.id)
+    @article2 = FactoryBot.create(:article, user_id: @user2.id)
+    @article3 = FactoryBot.create(:article, user_id: @user2.id)
+  end
+  it '記事詳細ページの下部の「next >」を選択すると一つ前の記事idの詳細ページに移動する' do
+    # トップページにいる
+    visit root_path
+    # @article2の記事詳細ページに移動する
+    visit article_path(@article2)
+    # @article2の記事詳細ページに「< prev」のリンクがある
+    expect(page).to have_link '< prev'
+    # 「< prev」をクリックすると、@articleの記事詳細ページにいることを確認する
+    click_on '< prev'
+    expect(current_path).to eq article_path(@article)
+    # article.idが最初の状態だと「< prev」のリンクが表示されないことを確認する
+    expect(page).to_not have_link '< prev'
+  end
+  it '記事詳細ページの下部の「< prev」を選択すると一つ後の記事idの詳細ページに移動する' do
+    # トップページにいる
+    visit root_path
+    # @article2の記事詳細ページに移動する
+    visit article_path(@article2)
+    # @article2の記事詳細ページに「next >」のリンクがある
+    expect(page).to have_link 'next >'
+    # 「next >」をクリックすると、@article3の記事詳細ページにいることを確認する
+    click_on 'next >'
+    expect(current_path).to eq article_path(@article3)
+    # article.idが最初の状態だと「next >」のリンクが表示されないことを確認する
+    expect(page).to_not have_link 'next >'
+  end
+end
