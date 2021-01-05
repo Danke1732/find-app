@@ -86,7 +86,14 @@
           <% end %>
         </div>
       </div>
-
+      <div class="page-change">
+        <% if @article.previous.present? %>
+          <%= link_to '< prev', article_path(@article.previous), class: "change-item-btn" %>
+        <% end %>
+        <% if @article.next.present? %>
+          <%= link_to 'next >', article_path(@article.next), class: "change-item-btn" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </main>
