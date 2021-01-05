@@ -11,4 +11,12 @@ class Article < ApplicationRecord
     validates :title
     validates :text
   end
+
+  def previous
+    Article.where('id < ?', id).order('id DESC').first
+  end
+
+  def next
+    Article.where('id > ?', id).order('id ASC').first
+  end
 end
