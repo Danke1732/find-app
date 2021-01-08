@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Categories", type: :request do
+RSpec.describe 'Categories', type: :request do
   before do
     # カテゴリー選択用
     work = Category.create(id: 1, name: '仕事・仕事術')
