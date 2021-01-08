@@ -9,7 +9,7 @@
       </div>
       <div class="category-user-visible-area">
         <div class="category-info">
-          カテゴリー : <%= @article_category_name[0] %> / <%= @article_category_name[1] %> / <%= @article_category_name[2] %>
+          カテゴリー : <%= link_to @article_category_name[0].name, category_path(@article_category_name[0].id), class: 'category-name' %> / <%= link_to @article_category_name[1].name, category_path(@article_category_name[1].id), class: 'category-name' %> / <%= link_to @article_category_name[2].name, category_path(@article_category_name[2].id), class: 'category-name' %>
         </div>
         <div class="user-day-info">
           <div class="user-info">

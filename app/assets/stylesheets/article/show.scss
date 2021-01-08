@@ -7,6 +7,17 @@
     .category-info {
       margin-bottom: 10px;
       color: #333;
+
+      .category-name {
+        color: #009be8;
+        transition: all 0.1s;
+
+        &:hover {
+          color: #f16d15;
+          transition: all 0.1s;
+          text-decoration: underline;
+        }
+      }
     }
 
     .user-day-info {
@@ -19,11 +30,11 @@
         a {
           color: #009be8;
           font-weight: bold;
-          transition: all 0.2s;
+          transition: all 0.1s;
 
           &:hover {
             color: #f16d15;
-            transition: all 0.2s;
+            transition: all 0.1s;
             text-decoration: underline;
           }
         }
