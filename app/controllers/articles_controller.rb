@@ -120,7 +120,7 @@ class ArticlesController < ApplicationController
     @article_category_name = []
     @article_categories.each do |category|
       category_name = Category.find_by(id: category)
-      @article_category_name << category_name.name
+      @article_category_name << category_name
     end
   end
 

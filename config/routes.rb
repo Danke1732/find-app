@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   end
   resources :profiles, only: [:new, :create]
   resources :notes, only: [:create, :destroy]
+  resources :categories, only: [:show]
 end
