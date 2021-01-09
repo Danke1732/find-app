@@ -1,0 +1,28 @@
+<%= render '/shared/header' %>
+
+<main>
+  <div class="container">
+    <%= render '/shared/aside_articles' %>
+    <div class="articles-wrapper">
+      <div class="wrapper-title-area">
+        <h2 class="wrapper-title">Category List</h2>
+      </div>
+      <ul class="article-display">
+        <% @parent_categories.each do |parent| %>
+          <li class="parent_list"><%= link_to "#{parent.name}", category_path(parent.id), class: "parent_index" %><li>
+          <ul class="categories_children">
+            <% parent.children.each do |child| %>
+              <li class="child_list"><%= link_to "#{child.name}", category_path(child.id), class: "child_index" %><li>
+              <ul class="categories_grandchildren">
+                <% child.children.each do |grandchild| %>
+                  <li><%= link_to "#{grandchild.name}", category_path(grandchild.id), class: "grandchild_index" %><li>
+                <% end %>
+              </ul>
+            <% end %>
+          </ul>
+        <% end %>  
+      </ul>
+  </div>
+</main>
+
+<%= render '/shared/footer' %>

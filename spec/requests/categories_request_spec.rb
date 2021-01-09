@@ -25,6 +25,30 @@ RSpec.describe 'Categories', type: :request do
     @article3 = FactoryBot.create(:article, user_id: @user3.id, category_id: 22)
   end
 
+  describe 'GET categories#index' do
+    it 'indexアクションにリクエストすると正常にレスポンスが返ってくる' do
+      get categories_path
+      expect(response.status).to eq 200
+    end
+    it 'indexアクションにリクエストするとレスポンスに「Category List」の文字が含まれている' do
+      get categories_path
+      expect(response.body).to include 'Category List'
+    end
+    it 'indexアクションにリクエストするとレスポンスに各カテゴリー名が含まれている' do
+      get categories_path
+      expect(response.body).to include '仕事・仕事術'
+      expect(response.body).to include '効率'
+      expect(response.body).to include 'ツール'
+
+      expect(response.body).to include '健康'
+      expect(response.body).to include '運動'
+      expect(response.body).to include 'ランニング'
+
+      expect(response.body).to include '食生活'
+      expect(response.body).to include 'その他'
+    end
+  end
+
   describe 'GET categories#show' do
     it 'showアクションにリクエストすると正常にレスポンスが返ってくる' do
       get category_path(@article.category_id)
