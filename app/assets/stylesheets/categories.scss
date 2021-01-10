@@ -1,5 +1,29 @@
 .articles-wrapper {
 
+  .parent_categories_nav_area {
+
+    ul.parent_categories_nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+
+      .top_menu_category {
+        color: #333;
+        display: block;
+        padding: 5px 6px;
+        background:rgba(0, 155, 232, 0.2);
+        border-radius: 4px;
+        transition: all 0.3s;
+
+        &:hover {
+          background:rgba(0, 155, 232, 0.9);
+          transition: all 0.3s;
+          color: #fff;
+        }
+      }
+    }
+  }
+
   ul.article-display {
     display: flex;
     flex-direction: column;
