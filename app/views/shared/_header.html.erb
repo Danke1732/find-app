@@ -9,11 +9,29 @@
           <li><%= link_to '投稿する', new_article_path, class: 'new-post' %></li>
           <li><%= link_to current_user.nickname, user_profiles_path(current_user.id), class: 'user_name' %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
-        </ul>
       <% else %>
-        <ul class="user_sign_in">
           <li><%= link_to '新規登録', new_user_registration_path, class: 'sign-up' %></li>
           <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
+        </ul>
+      <% end %>
+    </div>
+
+    <div class="header-right-responsive">
+      <div class="fas fa-bars menu-icon" id="icon"></div>
+    </div>
+    <div class="responsive-menu-area">
+      <% if user_signed_in? %>
+        <ul class="responsive-menu">
+          <li class="responsive-menu-title">USER MENU</li>
+          <li><%= link_to '投稿する', new_article_path, class: 'new-post' %></li>
+          <li><%= link_to current_user.nickname, user_profiles_path(current_user.id), class: 'user_name' %></li>
+          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
+          <li class="menu-close">メニューを閉じる</li>
+      <% else %>
+        <li>USER MENU</li>
+          <li><%= link_to '新規登録', new_user_registration_path, class: 'sign-up' %></li>
+          <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
+          <li class="menu-close">メニューを閉じる</li>
         </ul>
       <% end %>
     </div>
