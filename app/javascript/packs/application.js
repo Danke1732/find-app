@@ -12,6 +12,7 @@ require('../bookmark')
 require('../note')
 require('../note_delete')
 require('../preview')
+require('../responsive_menu')
 
 import { AjaxRequestCounter } from "../src/ajax_request_counter";
 AjaxRequestCounter.start()
