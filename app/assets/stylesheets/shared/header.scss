@@ -107,10 +107,10 @@ header {
       .responsive-menu-area {
         display: none;
         background: #fff;
-        position: fixed;
+        position: absolute;
         top: 80px;
         right: 0;
-        z-index: 1000;
+        z-index: 10;
         width: 25%;
 
         .responsive-menu-title {
