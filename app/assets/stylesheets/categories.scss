@@ -106,3 +106,19 @@
     }
   }
 }
+
+@media(max-width: 900px) {
+  .articles-wrapper {
+
+    .parent_categories_nav_area {
+
+      ul.parent_categories_nav {
+        flex-wrap: wrap;
+
+        .top_menu_category {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}

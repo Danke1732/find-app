@@ -159,7 +159,6 @@
     width: 72%;
     margin: 40px 1.5% 0 auto;
 
-  
     .comment-visible-box,
     .comment-wrapper {
       width: 100%;
@@ -340,4 +339,25 @@
   content: '';
   display: block;
   clear: both;
+}
+
+@media(max-width: 900px) {
+  .articles-wrapper {
+
+    .article-details {
+
+      .btn {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .comment-all {
+    max-width: 100%;
+    margin: 0 1%;
+
+    .low-comment-wrapper {
+      width: 100%;
+    }
+  }
 }

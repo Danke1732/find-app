@@ -172,3 +172,14 @@
 .form-edit-user {
   margin: 0 auto;
 }
+
+@media(max-width: 900px) {
+  .registration-main {
+    min-width: 100%;
+  }
+
+  .form-wrap {
+    width: 94%;
+    margin: 0 3%;
+  }
+}

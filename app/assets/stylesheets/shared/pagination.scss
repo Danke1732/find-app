@@ -37,3 +37,15 @@
   bottom: 3px;
   transition: all 0.2s;
 }
+
+@media(max-width: 600px) {
+  .pagination {
+    flex-wrap: wrap;
+  }
+
+  .pagination > li > a {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+}
