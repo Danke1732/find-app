@@ -115,3 +115,43 @@
   margin-bottom: 120px;
 }
 
+@media(max-width: 900px) {
+  .articles-wrapper {
+    width: 100%;
+  }
+}
+
+@media(max-width: 670px) {
+  .articles-wrapper {
+
+    .wrapper-title-area {
+
+      .wrapper-title {
+        font-size: 25px;
+      }
+    }
+
+    .contents-title-area {
+
+      .wrapper-title {
+        font-size: 25px;
+      }
+    }
+    
+    .article-display {
+      flex-direction: column;
+
+      .article-box {
+        width: 100%;
+      }
+    }
+  }
+
+  .user-article-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .user-note-wrapper {
+    margin-bottom: 20px;
+  }
+}

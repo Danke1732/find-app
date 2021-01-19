@@ -29,7 +29,6 @@
         transition: all 0.2s;
       }
 
-
       .user-list-nickname {
         font-size: 24px;
         margin-bottom: 10px;
@@ -74,9 +73,33 @@
               }
             }
           }
+        }
       }
+    }
+  }
+}
 
+@media(max-width: 670px) {
+  .articles-wrapper {
 
+    .userlist-display {
+
+      .profile-content {
+
+        .user-list-info {
+
+          .user-list-link {
+            flex-wrap: wrap;
+
+            li {
+
+              .user-link {
+                margin-bottom: 8px;
+                font-size: 12px;
+              }
+            }
+          }
+        }
       }
     }
   }
