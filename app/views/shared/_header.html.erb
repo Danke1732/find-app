@@ -47,12 +47,6 @@
           <li><%= link_to "ブックマークランキング", ranking_articles_path, class: 'new-post second_responsive' %></li>
           <li class="responsive-menu-title second_responsive">USER SUPPORT</li>
           <li><%= link_to "ノート", user_notes_path(current_user.id), class: 'new-post second_responsive' %></li>
-          <li class="side-box">
-            <%= form_with model: @note, url: notes_path, class: 'memo-form second_responsive', local: true do |f| %>
-              <%= f.text_area :text, class: 'memo-area', id: 'memo-field', placeholder: '気になることをメモしよう！' %>
-              <%= f.submit 'メモする', class: 'memo-submit' %>
-            <% end %>
-          </li>
         </ul>
       <% else %>
         <ul class="responsive-menu">
