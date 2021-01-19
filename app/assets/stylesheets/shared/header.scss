@@ -73,10 +73,18 @@ header {
   }
 }
 
-@media(max-width: 960px) {
+@media(max-width: 900px) {
   header {
+    padding: 0 36px;
 
     .container {
+
+      .header-left {
+
+        h2 > a {
+          font-size: 1.5em;
+        }
+      }
 
       .header-right {
         display: none;
@@ -107,11 +115,12 @@ header {
       .responsive-menu-area {
         display: none;
         background: #fff;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.4);
         position: absolute;
         top: 80px;
         right: 0;
         z-index: 10;
-        width: 25%;
+        width: 300px;
 
         .responsive-menu-title {
           font-size: 16px;
@@ -131,7 +140,7 @@ header {
 
             a {
               color: #333;
-              font-size: 12px;
+              font-size: 14px;
               display: block;
               margin-bottom: 10px;
               padding: 4px 2px;
@@ -145,14 +154,29 @@ header {
 
           li.menu-close {
             color: #333;
-            font-size: 12px;
+            font-size: 14px;
             display: block;
             padding: 4px 2px;
             cursor: pointer;
+            margin-bottom: 10px;
 
             &:hover {
               background: rgba(222, 222, 222, 0.4);
               color: orangered;
+            }
+          }
+
+          li.side-box {
+            padding: 0;
+            box-shadow: none;
+            .memo-form {
+
+              .memo-area {
+                height: 30px;
+                padding: 4px;
+                margin-bottom: 5px;
+              }
+
             }
           }
         }

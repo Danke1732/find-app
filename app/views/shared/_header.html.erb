@@ -24,11 +24,35 @@
     <div class="responsive-menu-area">
       <% if user_signed_in? %>
         <ul class="responsive-menu">
+          <li class="responsive-menu-title second_responsive">SEARCH</li>
+          <li>
+            <%= form_with url: search_articles_path, method: :get, class: 'search-form', local: true do |f| %>
+              <%= f.text_field :keyword, class: 'input-box second_responsive', placeholder: 'キーワードから探す' %> 
+              <%= button_tag type: :submit, class:"search-btn" do %>
+                <i class="fas fa-search"></i>
+              <% end %>
+            <% end %>
+          </li>
           <li class="responsive-menu-title">USER MENU</li>
           <li><%= link_to '投稿する', new_article_path, class: 'new-post' %></li>
           <li><%= link_to current_user.nickname, user_profiles_path(current_user.id), class: 'user_name' %></li>
           <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'logout' %></li>
           <li class="menu-close">メニューを閉じる</li>
+          <li class="responsive-menu-title second_responsive">ARTICLE MENU</li>
+          <li><%= link_to '新着記事', root_path, class: 'new-post second_responsive' %></li>
+          <li><%= link_to 'ブックマーク', user_bookmarks_path(current_user.id), class: 'new-post second_responsive' %></li>
+          <li><%= link_to "#{current_user.nickname}さんの投稿記事", user_path(current_user), class: 'new-post second_responsive' %></li>
+          <li><%= link_to "ユーザー一覧", users_path, class: 'new-post second_responsive' %></li>
+          <li><%= link_to "カテゴリー一覧", categories_path, class: 'new-post second_responsive' %></li>
+          <li><%= link_to "ブックマークランキング", ranking_articles_path, class: 'new-post second_responsive' %></li>
+          <li class="responsive-menu-title second_responsive">USER SUPPORT</li>
+          <li><%= link_to "ノート", user_notes_path(current_user.id), class: 'new-post second_responsive' %></li>
+          <li class="side-box">
+            <%= form_with model: @note, url: notes_path, class: 'memo-form second_responsive', local: true do |f| %>
+              <%= f.text_area :text, class: 'memo-area', id: 'memo-field', placeholder: '気になることをメモしよう！' %>
+              <%= f.submit 'メモする', class: 'memo-submit' %>
+            <% end %>
+          </li>
         </ul>
       <% else %>
         <ul class="responsive-menu">
@@ -36,6 +60,11 @@
           <li><%= link_to '新規登録', new_user_registration_path, class: 'sign-up' %></li>
           <li><%= link_to 'ログイン', new_user_session_path, class: 'login' %></li>
           <li class="menu-close">メニューを閉じる</li>
+          <li class="responsive-menu-title second_responsive">ARTICLE MENU</li>
+          <li><%= link_to '新着記事', root_path, class: 'new-post second_responsive' %></li>
+          <li><%= link_to "ユーザー一覧", users_path, class: 'new-post second_responsive' %></li>
+          <li><%= link_to "カテゴリー一覧", categories_path, class: 'new-post second_responsive' %></li>
+          <li><%= link_to "ブックマークランキング", ranking_articles_path, class: 'new-post second_responsive' %></li>
         </ul>
       <% end %>
     </div>
