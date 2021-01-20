@@ -121,12 +121,14 @@ header {
         right: 0;
         z-index: 10;
         width: 300px;
+        height: auto;
+        padding-bottom: 0;
 
         .responsive-menu-title {
-          font-size: 16px;
-          color: #333;
+          font-size: 17px;
+          color: rgb(255, 112, 57);
           margin-bottom: 12px;
-          border-bottom: 1px solid #333;
+          border-bottom: 1px solid rgba(51, 51, 51, 0.4);
           padding-left: 6px;
           padding-bottom: 2px;
           font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
@@ -135,6 +137,7 @@ header {
 
         .responsive-menu {
           padding: 12px;
+          padding-bottom: 0;
 
           li {
 
@@ -143,12 +146,17 @@ header {
               font-size: 14px;
               display: block;
               margin-bottom: 10px;
-              padding: 4px 2px;
+              padding: 4px 2px 4px 12px;
 
               &:hover {
                 background: rgba(222, 222, 222, 0.4);
                 color: orangered;
               }
+
+            }
+
+            .responsive_note {
+              margin-bottom: 5px;
             }
           }
 
@@ -156,7 +164,7 @@ header {
             color: #333;
             font-size: 14px;
             display: block;
-            padding: 4px 2px;
+            padding: 4px 2px 4px 12px;
             cursor: pointer;
             margin-bottom: 10px;
 
@@ -166,17 +174,44 @@ header {
             }
           }
 
+          .search-form {
+            margin-bottom: 10px;
+          }
+
           li.side-box {
             padding: 0;
             box-shadow: none;
-            .memo-form {
 
-              .memo-area {
+            .responsive_memo_form {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+
+              .responsive_memo_area {
                 height: 30px;
-                padding: 4px;
-                margin-bottom: 5px;
+                padding: 5px 10px;
+                margin-bottom: 10px;
+                resize: none;
               }
 
+              .responsive_memo_submit {
+                width: 100px;
+                margin: 0 auto;
+                background: rgb(0, 155, 232);
+                border: 2px solid rgba(0, 0, 0, 0);
+                border-radius: 4px;
+                color: #fff;
+                font-size: 16px;
+                cursor: pointer;
+                transition: all 0.3s;
+
+                &:hover {
+                  border: 2px solid rgba(0, 155, 232, 1);
+                  background:rgba(0, 155, 232, 0.1);
+                  color:rgb(0, 155, 232);
+                  transition: all 0.3s;
+                }
+              }
             }
           }
         }
