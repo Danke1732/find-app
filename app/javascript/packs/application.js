@@ -13,6 +13,7 @@ require('../note')
 require('../note_delete')
 require('../preview')
 require('../responsive_menu')
+require('../responsive_note')
 
 import { AjaxRequestCounter } from "../src/ajax_request_counter";
 AjaxRequestCounter.start()

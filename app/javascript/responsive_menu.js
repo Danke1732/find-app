@@ -11,5 +11,4 @@ function responsiveAction() {
     menuBox.classList.remove('visible');
   });
 };
-
 addEventListener('DOMContentLoaded', responsiveAction);
