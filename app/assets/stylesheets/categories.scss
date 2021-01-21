@@ -114,9 +114,11 @@
 
       ul.parent_categories_nav {
         flex-wrap: wrap;
+        justify-content: flex-start;
 
         .top_menu_category {
           margin-bottom: 8px;
+          margin-right: 10px;
         }
       }
     }

@@ -188,10 +188,11 @@ header {
               width: 100%;
 
               .responsive_memo_area {
-                height: 30px;
+                height: 40px;
                 padding: 5px 10px;
                 margin-bottom: 10px;
                 resize: none;
+                border: 1px solid #ccc;
               }
 
               .responsive_memo_submit {

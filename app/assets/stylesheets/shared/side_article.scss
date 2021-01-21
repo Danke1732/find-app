@@ -65,6 +65,7 @@
         font-size: 16px;
         height: 180px;
         resize: none;
+        border: 1px solid #ccc;
       }
 
       .memo-submit {
@@ -94,7 +95,7 @@
 
     .input-box {
       width: 100%;
-      padding: 8px 10px 8px 34px;
+      padding: 8px 10px 6px 34px;
       font-size: 1.05em;
       color: #333;
       border: solid 1px #ccc;
