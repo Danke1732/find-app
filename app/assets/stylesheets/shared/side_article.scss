@@ -32,6 +32,7 @@
       padding: 4px 2px;
       color: #333;
       border-radius: 4px;
+      transition: all 0.3s;
 
       .note {
         pointer-events: none;
@@ -42,6 +43,7 @@
       &:hover {
         background: rgba(222, 222, 222, 0.4);
         color: orangered;
+        transition: all 0.3s;
       }
 
     }
