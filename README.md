@@ -127,7 +127,7 @@ password : test11
 
 - ### レスポンシブウェブデザイン
 
-  [![レスポンシブ](https://i.gyazo.com/c630faa6176a2a737b954003cb023a91.gif)](レスポンシブ)
+  [![レスポンシブ](https://i.gyazo.com/aef2c3c40a58800a2c4af293f056c0aa.gif)](レスポンシブ)
 
 ## 実装予定の機能
 
