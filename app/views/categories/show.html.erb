@@ -20,6 +20,7 @@
               <div class="article-low-content">
                 <h2 class="content-title"><%= article.title %></h2>
                 <p class="content-user">投稿者 : <%= article.user.nickname %></p>
+                <p class="content-date">更新日 : <%= l article.updated_at %></p>
               </div>
             </div>
           <% end %>

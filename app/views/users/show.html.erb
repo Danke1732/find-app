@@ -10,21 +10,26 @@
       <div class="contents-title-area">
         <h2 class="wrapper-title"><%= @user.nickname %>さんの投稿記事</h2>
       </div>
-      <div class="article-display">
-        <% @user_articles.each do |article| %>
-          <%= link_to article_path(article), class: 'article-box' do %>
-            <div class="article-content">
-              <div>
-                <%= image_tag article.image if article.image.attached? %>
+      <% if @user_articles.empty? %>
+        <div class="articles_none">現在、<%= "#{@user.nickname}" %>さんの記事は投稿されていません。</div>
+      <% else %>
+        <div class="article-display">
+          <% @user_articles.each do |article| %>
+            <%= link_to article_path(article), class: 'article-box' do %>
+              <div class="article-content">
+                <div>
+                  <%= image_tag article.image if article.image.attached? %>
+                </div>
+                <div class="article-low-content">
+                  <h2 class="content-title"><%= article.title %></h2>
+                  <p class="content-user">投稿者: <%= article.user.nickname %></p>
+                  <p class="content-date">更新日 : <%= l article.updated_at %></p>
+                </div>
               </div>
-              <div class="article-low-content">
-                <h2 class="content-title"><%= article.title %></h2>
-                <p class="content-user">投稿者: <%= article.user.nickname %></p>
-              </div>
-            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <div class="page-list">
         <%= paginate @articles %>
       </div>
