@@ -33,9 +33,7 @@ consumer.subscriptions.create("CommentChannel", {
         </h3>
         <div class="comment-content">
           ${data.content.text}
-        </div>
-        <div>
-          ${data.date}
+          <p class="comment_date">${data.date}</p>
         </div>
         <div class="comment-delete fas fa-trash-alt" id="${data.content.id}"></div>
         <div class="clearfix"></div>

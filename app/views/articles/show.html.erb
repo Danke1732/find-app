@@ -53,7 +53,7 @@
                 <h3 class="comment-user"><%= comment.user.nickname %></h3>
                 <div class="comment-content">
                   <%= simple_format(comment.text) %>
-                  <%= l comment.created_at %>
+                  <p class="comment_date"><%= l comment.created_at %><p>
                 </div>
                 <% if user_signed_in? %>
                   <% if current_user.id == comment.user.id || current_user.id == @article.user.id %>
