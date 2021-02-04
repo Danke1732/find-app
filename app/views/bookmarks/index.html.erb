@@ -11,7 +11,7 @@
         <h2 class="wrapper-title"><%= @user.nickname %>さんのブックマーク記事</h2>
       </div>
       <% if @articles.empty? %>
-       <div class="articles_none">現在、<%= "#{@user.nickname}" %>さんのブックマーク登録している記事はありません。</div>
+        <div class="articles_none">現在、<%= "#{@user.nickname}" %>さんのブックマーク登録している記事はありません。</div>
       <% else %>
         <div class="article-display">
           <% @articles.each do |article| %>

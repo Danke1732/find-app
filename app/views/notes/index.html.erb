@@ -7,17 +7,21 @@
       <div class="wrapper-title-area">
         <h2 class="wrapper-title">Note page</h2>
       </div>
-      <div class="article-display note-box">
-        <% @notes.each do |note| %>
-          <div class="note-content">
-            <p><%= note.text %></p>
-            <p><%= l note.created_at %></p>
-            <% if current_user.id == note.user_id %>
-              <div class="note-delete fas fa-trash-alt" data-num="<%= note.id %>"></div>
-            <% end %>
-          </div>
-        <% end %>
-      </div>
+      <% if @notes.empty? %>
+        <div class="articles_none">現在、<%= "#{@user.nickname}" %>さんのメモはありません。</div>
+      <% else %>
+        <div class="article-display note-box">
+          <% @notes.each do |note| %>
+            <div class="note-content">
+              <p><%= note.text %></p>
+              <p><%= l note.created_at %></p>
+              <% if current_user.id == note.user_id %>
+                <div class="note-delete fas fa-trash-alt" data-num="<%= note.id %>"></div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
       <div class="page-list">
         <%= paginate @notes %>
       </div>
