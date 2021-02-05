@@ -12,22 +12,26 @@
           <h2 class="wrapper-title">「<%= @keyword %>」の検索結果</h2>
         </div>
       <% end %>
-      <div class="article-display">
-        <% @articles.each do |article| %>
-          <%= link_to article_path(article), class: 'article-box' do %>
-            <div class="article-content">
-              <div>
-                <%= image_tag article.image if article.image.attached? %>
+      <% if @articles.empty? %>
+        <div class="articles_none">「 <%= @keyword %> 」を含む記事はありません。</div>
+      <% else %>
+        <div class="article-display">
+          <% @articles.each do |article| %>
+            <%= link_to article_path(article), class: 'article-box' do %>
+              <div class="article-content">
+                <div>
+                  <%= image_tag article.image if article.image.attached? %>
+                </div>
+                <div class="article-low-content">
+                  <h2 class="content-title"><%= article.title %></h2>
+                  <p class="content-user">投稿者 : <%= article.user.nickname %></p>
+                  <p class="content-date">更新日 : <%= l article.updated_at %></p>
+                </div>
               </div>
-              <div class="article-low-content">
-                <h2 class="content-title"><%= article.title %></h2>
-                <p class="content-user">投稿者 : <%= article.user.nickname %></p>
-                <p class="content-date">更新日 : <%= l article.updated_at %></p>
-              </div>
-            </div>
-          <% end %>
-        <% end %>  
-      </div>
+            <% end %>
+          <% end %>  
+        </div>
+      <% end %>
       <div class="page-list">
         <%= paginate @articles %>
       </div>

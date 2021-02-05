@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :articles do
     resources :comments, only: [:create, :destroy]
     collection do
-      get 'ranking', to: 'articles#ranking'      
+      get 'ranking', to: 'articles#ranking'
     end
     collection do
       get 'get_category_children/:id', to: 'articles#get_category_children'
