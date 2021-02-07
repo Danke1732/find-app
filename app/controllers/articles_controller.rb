@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @articles = @article.user.articles.where.not(id: @article.id).with_attached_image.order('RAND()').limit(3)
     get_category_path_name
     @comment = Comment.new
     @comments = @article.comments.includes(:user).order('created_at ASC')
