@@ -96,6 +96,30 @@
       </div>
     </div>
   </div>
+
+  <% if @articles.any? %>
+    <div class="users_other_articles_area">
+      <div class="wrapper-title-area">
+          <h2 class="wrapper-title"><%= "#{@article.user.nickname}さんの他の投稿記事" %></h2>
+        </div>
+      <div class="users_other_articles_wrapper">
+        <% @articles.each do |article| %>
+          <%= link_to article_path(article), class: 'article-box' do %>
+            <div class="article-content">
+              <div>
+                <%= image_tag article.image if article.image.attached? %>
+              </div>
+              <div class="article-low-content">
+                <h2 class="content-title"><%= article.title %></h2>
+                <p class="content-user">投稿者 : <%= article.user.nickname %></p>
+                <p class="content-date">更新日 : <%= l article.updated_at %></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
 </main>
 
 <%= render '/shared/footer' %>
