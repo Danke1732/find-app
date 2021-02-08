@@ -100,8 +100,8 @@
   <% if @articles.any? %>
     <div class="users_other_articles_area">
       <div class="wrapper-title-area">
-          <h2 class="wrapper-title"><%= "#{@article.user.nickname}さんの他の投稿記事" %></h2>
-        </div>
+        <h2 class="wrapper-title"><%= "#{@article.user.nickname}さんの他の投稿記事" %></h2>
+      </div>
       <div class="users_other_articles_wrapper">
         <% @articles.each do |article| %>
           <%= link_to article_path(article), class: 'article-box' do %>
@@ -117,6 +117,9 @@
             </div>
           <% end %>
         <% end %>
+      </div>
+      <div class="users_other_articles_link_area">
+        <%= link_to "#{@article.user.nickname}さんの全記事一覧", user_path(@article.user), class: "users_other_articles_link" %>
       </div>
     </div>
   <% end %>

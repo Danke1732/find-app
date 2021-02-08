@@ -357,6 +357,11 @@
     border-bottom: 0px solid rgba(170, 170, 170, 0.3);
     color: #333;
     font-family: 'Quicksand', 'Noto Sans JP', sans-serif;
+    display: flex;
+    
+    .wrapper-title {
+      letter-spacing: 0.05em;
+    }
   }
 
   .users_other_articles_wrapper {
@@ -384,10 +389,10 @@
         color: #333;
 
         .article-low-content {
-          padding-left: 8px;
+          padding: 0 8px;
 
           .content-title {
-            font-size: 16px;
+            font-size: 15px;
             margin-top: 8px;
             margin-bottom: 10px;
           }
@@ -411,6 +416,30 @@
 
     .article-box:last-child {
       margin: 0;
+    }
+  }
+
+  .users_other_articles_link_area {
+    width: 72%;
+    margin: 0 1.5% 0 auto;
+    background: #fff;
+    padding: 0px 1.5% 16px;
+    text-align: center;
+
+    .users_other_articles_link {
+      background:  rgb(0, 155, 232);
+      transition: all 0.3s;
+      border: 2px solid rgb(0, 155, 232);
+      color: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+      padding: 6px 24px;
+      border-radius: 4px;
+
+      &:hover {
+        transition: all 0.3s;
+        color: rgb(0, 155, 232);
+        background: #fff;
+      }
     }
   }
 
@@ -458,8 +487,22 @@
 
     .users_other_articles_wrapper {
       width: 100%;
+
+      .article-box {
+        width: 100%;
+      }
+    }
+
+    .users_other_articles_link_area {
+      width: 100%;
+      margin: 0;
+  
+      .users_other_articles_link {
+        width: 100%;
+      }
     }
   }
+
 }
 
 @media(max-width: 670px) {
