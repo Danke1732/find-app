@@ -506,6 +506,16 @@
 }
 
 @media(max-width: 670px) {
+  .articles-wrapper {
+
+    .article-details {
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+
   .users_other_articles_area {
 
     .users_other_articles_wrapper {
