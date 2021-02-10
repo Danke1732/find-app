@@ -18,6 +18,7 @@
         background: rgba(255, 112, 57, 0.8);
         padding: 4px 16px;
         width: 40%;
+        min-width: 150px;
         border-radius: 4px 4px 0 0;
         
         .article-form-text {
@@ -30,6 +31,7 @@
         font-size: 18px;
         background: rgba(255, 112, 57, 0.3);
         border-radius: 0 4px 4px 4px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.4);
       }
     }
 
