@@ -19,4 +19,8 @@ class Article < ApplicationRecord
   def next
     Article.where('id > ?', id).order('id ASC').first
   end
+
+  def new_arrival?
+    created_at + 3.days > Date.today
+  end
 end
