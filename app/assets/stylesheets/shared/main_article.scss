@@ -108,7 +108,7 @@
           padding: 15px 15px 10px;
   
           .content-title {
-            font-size: 18px;
+            font-size: 16px;
             margin-bottom: 10px;
           }
   
@@ -181,6 +181,24 @@
 
       .article-box {
         width: 100%;
+
+        .article-content {
+
+          .article-low-content {
+
+            .content-title {
+              font-size: 14px;
+            }
+
+            .content-user {
+              font-size: 12px;
+            }
+
+            .content-date {
+              font-size: 12px;
+            }
+          }
+        }
       }
     }
   }
