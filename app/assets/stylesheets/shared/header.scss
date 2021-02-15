@@ -71,6 +71,20 @@ header {
       display: none;
     }
   }
+
+  #mask {
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 19;
+  }
+
+  #mask.hidden {
+    display: none;
+  }
 }
 
 @media(max-width: 900px) {
@@ -99,6 +113,9 @@ header {
           color:#fff;
           display: inline-block;
           transition: all 0.2s;
+          position: absolute;
+          right: 36px;
+          z-index: 20;
 
           &::before {
             cursor: pointer;
