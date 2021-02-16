@@ -116,6 +116,7 @@ header {
           position: absolute;
           right: 36px;
           z-index: 20;
+          user-select: none;
 
           &::before {
             cursor: pointer;

@@ -7,7 +7,7 @@
 .login-red-btn {
   width: 100%;
   background: #0099e8;
-  border: 1px solid #0099e8;
+  border: 2px solid #0099e8;
   color: #fff;
   line-height: 48px;
   font-size: 14px;
@@ -15,6 +15,14 @@
   border-radius: 8px;
   margin-top: 30px;
   box-shadow: 0 2px 3px #222;
+  transition: all 0.3s;
+}
+
+.login-red-btn:hover {
+  border: 2px solid rgba(0, 155, 232, 1);
+  background:rgba(0, 155, 232, 0.1);
+  color:rgb(0, 155, 232);
+  transition: all 0.3s;
 }
 
 .login-flash-message {
