@@ -80,9 +80,6 @@ header {
     left: 0;
     bottom: 0;
     z-index: 19;
-  }
-
-  #mask.hidden {
     display: none;
   }
 }
@@ -246,6 +243,10 @@ header {
             }
           }
         }
+      }
+
+      #mask.visible {
+        display: block;
       }
 
       .visible {

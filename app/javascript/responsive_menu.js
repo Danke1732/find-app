@@ -6,12 +6,12 @@ function responsiveAction() {
 
   menuIcon.addEventListener('click', () => {
     menuBox.classList.toggle('visible');
-    mask.classList.toggle('hidden');
+    mask.classList.toggle('visible');
   });
 
   closeMenu.addEventListener('click', () => {
     menuBox.classList.remove('visible');
-    mask.classList.add('hidden');
+    mask.classList.remove('visible');
   });
 
   mask.addEventListener('click', () => {
