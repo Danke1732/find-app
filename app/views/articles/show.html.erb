@@ -106,7 +106,7 @@
         <% @articles.each do |article| %>
           <%= link_to article_path(article), class: 'article-box' do %>
             <div class="article-content">
-              <div>
+              <div class="article_img">
                 <%= image_tag article.image if article.image.attached? %>
               </div>
               <div class="article-low-content">
