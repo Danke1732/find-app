@@ -79,8 +79,8 @@ header {
     right: 0;
     left: 0;
     bottom: 0;
-    z-index: 19;
-    display: none;
+    opacity: 0;
+    z-index: -1;
   }
 }
 
@@ -128,16 +128,17 @@ header {
       }
 
       .responsive-menu-area {
-        display: none;
+        display: block;
         background: #fff;
         box-shadow: 0 1px 3px rgba(0,0,0,0.4);
         position: absolute;
         top: 80px;
-        right: 0;
+        right: -350px;
         z-index: 20;
         width: 300px;
         height: auto;
         padding-bottom: 0;
+        transition: all 0.5s;
 
         .responsive-menu-title {
           font-size: 17px;
@@ -171,7 +172,6 @@ header {
                 transition: all 0.2s;
                 padding-left: 18px;
               }
-
             }
 
             .responsive_note {
@@ -251,10 +251,15 @@ header {
 
       #mask.visible {
         display: block;
+        opacity: 1.0;
+        z-index: 19;
       }
 
       .visible {
-        display: block;
+        position: absolute;
+        top: 80px;
+        right: 0px;
+        transition: all 0.5s;
       }
     }
   }
