@@ -10,6 +10,6 @@ class Bookmark < ApplicationRecord
       @bookmark = 'false'
       @bookmark_check = 'する'
     end
-    return @bookmark, @bookmark_check
+    [@bookmark, @bookmark_check]
   end
 end
