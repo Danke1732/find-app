@@ -24,17 +24,12 @@ class ArticlesController < ApplicationController
 
   def show
     @articles = @article.user.articles.where.not(id: @article.id).with_attached_image.order('RAND()').limit(3)
-    get_category_path_name
+    @article_category_name = Category.get_category_path_name(@article)
     @comment = Comment.new
     @comments = @article.comments.includes(:user).order('created_at ASC')
     bookmark_status = Bookmark.find_by(article_id: params[:id], user_id: current_user.id) if user_signed_in?
-    if bookmark_status
-      @bookmark = 'true'
-      @bookmark_check = '外す'
-    else
-      @bookmark = 'false'
-      @bookmark_check = 'する'
-    end
+    @bookmark = Bookmark.status(bookmark_status)[0]
+    @bookmark_check = Bookmark.status(bookmark_status)[1]
   end
 
   def edit
@@ -113,15 +108,6 @@ class ArticlesController < ApplicationController
     @category_grandchildren_array = []
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren
-    end
-  end
-
-  def get_category_path_name
-    @article_categories = Category.find_by(id: @article.category_id).path_ids
-    @article_category_name = []
-    @article_categories.each do |category|
-      category_name = Category.find_by(id: category)
-      @article_category_name << category_name
     end
   end
 
