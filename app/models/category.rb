@@ -17,4 +17,14 @@ class Category < ApplicationRecord
       articles
     end
   end
+
+  def self.get_category_path_name(article)
+    @article_categories = Category.find_by(id: article.category_id).path_ids
+    @article_category_name = []
+    @article_categories.each do |category|
+      category_name = Category.find_by(id: category)
+      @article_category_name << category_name
+    end
+    @article_category_name
+  end
 end
