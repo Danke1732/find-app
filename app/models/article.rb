@@ -23,4 +23,14 @@ class Article < ApplicationRecord
   def new_arrival?
     created_at + 3.days > Date.today
   end
+
+  def self.keyword_search(keywords)
+    articles = []
+    keywords.each do |keyword|
+      Article.where('title LIKE(?) OR text LIKE(?)', "%#{keyword}%", "%#{keyword}%").eager_load(:user).with_attached_image.each do |answer|
+        articles.push(answer)
+      end
+    end
+    articles
+  end
 end
