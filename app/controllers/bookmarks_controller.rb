@@ -17,11 +17,7 @@ class BookmarksController < ApplicationController
       bookmark.save
     end
     bookmark_after = Bookmark.find_by(article_id: params[:id], user_id: current_user.id)
-    registration = if bookmark_after
-                     '外す'
-                   else
-                     'する'
-                   end
+    registration = Bookmark.like_ajax(bookmark_after)
     render json: { bookmark: bookmark_after, registration: registration }
   end
 end

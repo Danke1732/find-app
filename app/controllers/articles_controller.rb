@@ -56,9 +56,8 @@ class ArticlesController < ApplicationController
   def search
     if params[:keyword] != ''
       @keyword = params[:keyword]
-      @article = []
       @split_keywords = params[:keyword].split(/[[:blank:]]+/)
-      keyword_search
+      @article = Article.keyword_search(@split_keywords)
       @articles = Kaminari.paginate_array(@article).page(params[:page]).per(8)
     else
       @articles = Article.includes(:user).with_attached_image.order('updated_at DESC').page(params[:page]).per(8)
@@ -113,13 +112,5 @@ class ArticlesController < ApplicationController
 
   def article_user_check
     redirect_to root_path unless current_user.id == @article.user_id
-  end
-
-  def keyword_search
-    @split_keywords.each do |keyword|
-      Article.where('title LIKE(?) OR text LIKE(?)', "%#{keyword}%", "%#{keyword}%").includes(:user).with_attached_image.each do |answer|
-        @article.push(answer)
-      end
-    end
   end
 end

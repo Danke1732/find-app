@@ -12,4 +12,12 @@ class Bookmark < ApplicationRecord
     end
     [@bookmark, @bookmark_check]
   end
+
+  def self.like_ajax(bookmark_after)
+    if bookmark_after
+      '外す'
+    else
+      'する'
+    end
+  end
 end
