@@ -217,11 +217,12 @@ header {
                 margin-bottom: 10px;
                 resize: none;
                 border: 1px solid #ccc;
-                border-radius: 4px;
+                border-radius: 2px;
                 outline: none;
 
                 &:focus {
                   border: 1px solid rgb(0, 155, 232);
+                  transition: border 0.3s;
                 }
               }
 

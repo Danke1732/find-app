@@ -284,6 +284,13 @@
               font-size: 16px;
               border: 1px solid rgba(170, 170, 170, 0.3);
               resize: none;
+              outline: none;
+              transition: border 0.3s;
+              border-radius: 2px;
+
+              &:focus {
+                border: 1px solid rgb(0, 155, 232);
+              }
             }
           }
 

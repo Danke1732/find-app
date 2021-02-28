@@ -73,6 +73,7 @@
 
         &:focus {
           border: 1px solid rgb(0, 155, 232);
+          transition: border 0.3s;
         }
       }
 
@@ -109,7 +110,7 @@
       color: #333;
       border: solid 1px #ccc;
       border-radius: 4px;
-      transition: 0.3s;
+      transition: border 0.3s;
       -webkit-appearance: none;
       outline: 0;
       margin-right: 2%;
