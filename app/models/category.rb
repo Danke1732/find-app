@@ -25,6 +25,24 @@ class Category < ApplicationRecord
       category_name = Category.find_by(id: category)
       @article_category_name << category_name
     end
+    
     @article_category_name
+  end
+
+  def self.set_edit_category_array(article)
+    grandchild_category = article.category
+    child_category = grandchild_category.parent
+
+    @category_children_array = []
+    Category.where(ancestry: child_category.ancestry).each do |children|
+      @category_children_array << children
+    end
+
+    @category_grandchildren_array = []
+    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
+      @category_grandchildren_array << grandchildren
+    end
+
+    [@category_children_array, @category_grandchildren_array]
   end
 end

@@ -33,11 +33,13 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    set_edit_category_array
+    @category_children_array = Category.set_edit_category_array(@article)[0]
+    @category_grandchildren_array = Category.set_edit_category_array(@article)[1]
   end
 
   def update
-    set_edit_category_array
+    @category_children_array = Category.set_edit_category_array(@article)[0]
+    @category_grandchildren_array = Category.set_edit_category_array(@article)[1]
     @article.update(article_params)
     if @article.valid?
       @article.save
@@ -92,21 +94,6 @@ class ArticlesController < ApplicationController
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
       @category_parent_array << parent
-    end
-  end
-
-  def set_edit_category_array
-    grandchild_category = @article.category
-    child_category = grandchild_category.parent
-
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
     end
   end
 
