@@ -383,12 +383,12 @@
     .article-box {
       width: 33%;
       margin-right: 10px;
-      transition: all 0.2s; 
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-      transition: transform 0.4s;
+      transition: all 0.4s;
 
       &:hover {
-        transition: transform 0.4s;
+        transition: all 0.4s;
+        opacity: 0.8;
 
         .article-content {
 

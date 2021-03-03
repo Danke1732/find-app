@@ -166,7 +166,7 @@
 
 .register-red-btn:hover {
   border: 2px solid rgba(0, 155, 232, 1);
-  background:rgba(0, 155, 232, 0.1);
+  background:rgba(255, 255, 255, 0.5);
   color:rgb(0, 155, 232);
   transition: all 0.3s;
 }
