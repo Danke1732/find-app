@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:destroy]
+  skip_before_action :verify_authenticity_token, only: :destroy
 
   def index
     @user = User.find_by(id: params[:user_id])

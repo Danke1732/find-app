@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :verify_authenticity_token, only: [:like]
+  skip_before_action :verify_authenticity_token, only: :like
 
   def index
     @user = User.find_by(id: params[:user_id])
