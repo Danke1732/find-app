@@ -16,7 +16,7 @@
 
     .side-head-area {
       padding: 0 0 6px;
-      border-bottom: 2px #0d0015 solid;
+      border-bottom: 1.5px #0d0015 solid;
       margin-bottom: 10px;
 
       .side-head-title {
@@ -41,11 +41,10 @@
       }
 
       &:hover {
-        background: rgba(222, 222, 222, 0.4);
+        background: rgba(222, 222, 222, 0.5);
         color: orangered;
         transition: all 0.3s;
       }
-
     }
 
     .user-support-menu {
