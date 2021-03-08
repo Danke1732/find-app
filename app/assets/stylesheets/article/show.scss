@@ -541,7 +541,30 @@
 @media(max-width: 670px) {
   .articles-wrapper {
 
+    .category-user-visible-area {
+      margin-bottom: 8px;
+
+      .user-day-info {
+        display: block;
+
+        .user-info {
+          margin-bottom: 10px;
+        }
+
+        .day-info {
+          margin-bottom: 0;
+        }
+      }
+    }
+
     .article-details {
+
+      .article-image-area {
+
+        img {
+          height: 300px;
+        }
+      }
 
       .btn {
         width: 100%;
