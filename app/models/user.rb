@@ -11,5 +11,5 @@ class User < ApplicationRecord
   has_many :notes
   has_one :profile
 
-  validates :nickname, presence: true
+  validates :nickname, presence: true, length: { maximum: 12 }
 end
