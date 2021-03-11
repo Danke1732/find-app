@@ -15,8 +15,8 @@
     background: #fff;
 
     .side-head-area {
-      padding: 0 0 6px;
-      border-bottom: 1.5px rgba(13, 0, 21, 0.5) solid;
+      padding: 0 0 6px 5px;
+      border-bottom: 1.5px rgba(13, 0, 21, 0.4) solid;
       margin-bottom: 10px;
 
       .side-head-title {
@@ -29,7 +29,7 @@
 
     ul > li > .side-menu-item {
       display: block;
-      padding: 4px;
+      padding: 4px 4px 4px 8px;
       color: #333;
       border-radius: 4px;
       transition: all 0.3s;
@@ -107,15 +107,14 @@
 
     .input-box {
       width: 100%;
-      padding: 8px 10px 6px 34px;
-      font-size: 1.05em;
+      padding: 8px 6px 6px 34px;
+      font-size: 1.0em;
       color: #333;
       border: solid 1px #ccc;
       border-radius: 4px;
       transition: border 0.3s;
       -webkit-appearance: none;
       outline: 0;
-      margin-right: 2%;
 
       &:focus {
         border: 1px solid rgb(0, 155, 232);
@@ -124,8 +123,9 @@
 
     .search-btn {
       width: 30px;
-      height: 40px;
+      height: 38px;
       box-sizing: content-box;
+      line-height: 38px;
       padding: 0;
       border: 0;
       opacity: 0.5;
@@ -135,6 +135,7 @@
       left: 2px;
       font-size: 20px;
       outline: none;
+      cursor: pointer;
     }
   }
 }
