@@ -23,17 +23,8 @@
       background: rgba(255, 112, 57, 0.1);
       border-radius: 4px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-      position: relative;
-      bottom: 0;
       transition: all 0.2s;
       border: 2px solid rgba(255, 112, 57, 0.2);
-
-      &:hover {
-        position: relative;
-        bottom: 3px;
-        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.18);
-        transition: all 0.2s;
-      }
 
       .user-list-nickname {
         font-size: 24px;
@@ -64,7 +55,7 @@
               background:  rgb(0, 155, 232);
               display: block;
               color: #fff;
-              padding: 8px;
+              padding: 4px 8px;
               border-radius: 10px;
               box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
               border: 2px solid rgba(0, 0, 0, 0);

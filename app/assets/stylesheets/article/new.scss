@@ -37,14 +37,18 @@
 
         .article-post-image {
           margin: 20px;
+          outline: none;
         }
 
         #image-content {
           width: 100%;
 
+
           .review-image {
             max-width: 600px;
             width: 100%;
+            max-height: 400px;
+            object-fit: contain;
             margin: 0 auto;
             display: block;
           }
