@@ -32,3 +32,11 @@
   font-size: 16px;
   color: rgb(255, 72, 0);
 }
+
+@media (max-width: 670px) {
+  .login-red-btn {
+    line-height: 30px;
+    font-weight: normal;
+    margin-top: 15px;
+  }
+}

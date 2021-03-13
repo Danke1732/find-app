@@ -57,3 +57,22 @@
     }
   }
 }
+
+@media(max-width: 670px) {
+  .article-post-form {
+
+    .article-form {
+
+      .form-wrapper {
+
+        .article-form-group {
+
+          .input-article-default {
+            padding: 8px;
+            height: 20vh;
+          }
+        }
+      }
+    }
+  }
+}

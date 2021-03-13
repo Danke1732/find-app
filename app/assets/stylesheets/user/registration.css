@@ -12,10 +12,10 @@
   width: 50%;
   background-color: white;
   padding-bottom: 50px;
-  border: 2px solid #333;
+  border: 1px solid rgba(51, 51, 51, 0.8);
   border-radius: 12px;
   margin-top: 10px;
-  box-shadow: 0 2px 2px #333;
+  box-shadow: 0 1px 3px #333;
 }
 
 .form-login {
@@ -179,5 +179,18 @@
 
   .form-header-text {
     font-size: 24px;
+  }
+}
+
+@media (max-width: 670px) {
+  .input-default {
+    height: 36px;
+    padding: 4px 8px;
+  }
+
+  .register-red-btn {
+    line-height: 32px;
+    font-weight: normal;
+    margin-top: 20px;
   }
 }
