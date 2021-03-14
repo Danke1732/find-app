@@ -584,4 +584,33 @@
       }
     }
   }
+
+  .comment-all {
+    margin-right: 0;
+    margin-left: 0;
+
+    .low-comment-wrapper {
+
+      .comment-visible-box {
+        height: 250px;
+      }
+
+      .comment-wrapper {
+
+        .comment-box {
+
+          #comment-form {
+
+            .comment-text-box {
+
+              .comment-text {
+                height: 100px;
+              }
+            }
+
+          }
+        }
+      }
+    }
+  }
 }
