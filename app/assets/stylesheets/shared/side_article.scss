@@ -35,12 +35,6 @@
       transition: all 0.3s;
       word-break: break-word;
 
-      .note {
-        pointer-events: none;
-        user-select: none;
-        cursor: none;
-      }
-
       &:hover {
         background: rgba(222, 222, 222, 0.5);
         color: orangered;
@@ -48,10 +42,15 @@
       }
     }
 
+    ul > li > .note {
+      user-select: none;
+      margin-bottom: 4px;
+    }
+
     .user-support-menu {
 
       #memo-error {
-        font-size: 1em;
+        font-size: 14px;
       }
     }
 
