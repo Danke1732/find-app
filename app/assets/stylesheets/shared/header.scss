@@ -269,3 +269,37 @@ header {
     }
   }
 }
+
+.return_top_btn {
+  display: inline-block;
+  opacity: 1;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: rgb(0, 155, 232);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: all 0.4s;
+  bottom: 55px;
+  right: 20px;
+  z-index: 100;
+}
+
+.hidden {
+  // display: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.return_top_btn:hover {
+  transform: translateY(-3px);
+}
+
+.fa-chevron-up {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 1.4em;
+  color: #fff;
+  transform: translate(-50%, -50%);
+}

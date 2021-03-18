@@ -14,6 +14,7 @@ require('../note_delete')
 require('../preview')
 require('../responsive_menu')
 require('../responsive_note')
+require('../return_top')
 
 import { AjaxRequestCounter } from "../src/ajax_request_counter";
 AjaxRequestCounter.start()
