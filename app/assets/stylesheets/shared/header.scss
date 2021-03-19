@@ -286,9 +286,10 @@ header {
 }
 
 .hidden {
-  // display: none;
   opacity: 0;
   transition: opacity 0.4s;
+  user-select: none;
+  pointer-events: none;
 }
 
 .return_top_btn:hover {
