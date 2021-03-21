@@ -277,6 +277,7 @@ header {
                 cursor: pointer;
                 transition: all 0.3s;
                 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+                outline: none;
 
                 &:hover {
                   border: 2px solid rgba(0, 155, 232, 1);
