@@ -309,9 +309,9 @@
 
             &:hover {
               box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+              background:rgba(0, 155, 232, 0.1);
               transition: all 0.3s;
               color: rgb(0, 155, 232);
-              background: #fff;
             }
           }
 
@@ -472,7 +472,7 @@
       &:hover {
         transition: all 0.3s;
         color: rgb(0, 155, 232);
-        background: #fff;
+        background:rgba(0, 155, 232, 0.1);
       }
     }
   }
