@@ -593,7 +593,10 @@
     .low-comment-wrapper {
 
       .comment-visible-box {
-        height: 250px;
+
+        .comment-open-area {
+          height: 240px;
+        }
       }
 
       .comment-wrapper {
