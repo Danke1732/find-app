@@ -147,7 +147,7 @@ header {
           font-size: 30px;
           color:#fff;
           display: inline-block;
-          transition: all 0.2s;
+          transition: all 0.3s;
           position: absolute;
           right: 36px;
           z-index: 20;
@@ -160,7 +160,7 @@ header {
           
           &:hover {
             color:rgba(255, 255, 255, 0.7);
-            transition: all 0.2s;
+            transition: all 0.3s;
           }
         }
       }
